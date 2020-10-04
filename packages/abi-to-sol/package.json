@@ -23,7 +23,6 @@
     "test:dist:test": "yarn prepare && jest dist/test"
   },
   "devDependencies": {
-    "@truffle/contract-schema": "^3.2.5",
     "@types/faker": "^5.1.2",
     "@types/jest": "^26.0.14",
     "@types/jest-json-schema": "^2.1.2",
@@ -43,6 +42,7 @@
   },
   "dependencies": {
     "@truffle/codec": "^0.6.2",
+    "@truffle/contract-schema": "^3.2.5",
     "ajv": "^6.12.5",
     "better-ajv-errors": "^0.6.7",
     "neodoc": "^2.0.2",
