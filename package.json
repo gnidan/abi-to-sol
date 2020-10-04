@@ -1,12 +1,16 @@
 {
   "name": "abi-to-sol",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Compile ABI JSON to Solidity interface",
   "main": "dist/lib/index.js",
+  "types": "dist/lib/index.d.ts",
   "bin": {
-    "generate-random-abi": "dist/bin/generate-random-abi.js",
-    "abi-to-sol": "dist/bin/abi-to-sol.js"
+    "abi-to-sol": "dist/bin/abi-to-sol.js",
+    "generate-random-abi": "dist/bin/generate-random-abi.js"
   },
+  "files": [
+    "dist"
+  ],
   "author": "g. nicholas d'andrea <nick@gnidan.org>",
   "license": "MIT",
   "scripts": {
