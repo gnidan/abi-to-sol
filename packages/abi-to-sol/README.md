@@ -1,6 +1,6 @@
 # abi-to-sol
 
-[![npm version](https://badge.fury.io/js/abi-to-sol.svg)](https://badge.fury.io/js/abi-to-sol)
+[![npm version](https://badge.fury.io/js/abi-to-sol.svg)](https://www.npmjs.com/package/abi-to-sol)
 
 _Generate Solidity `interface` source from a given ABI JSON!_
 
