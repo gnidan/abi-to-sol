@@ -1,0 +1,1 @@
+export {generateSolidity} from "./solidity";

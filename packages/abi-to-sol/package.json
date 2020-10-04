@@ -1,0 +1,55 @@
+{
+  "name": "abi-to-sol",
+  "version": "0.1.0",
+  "description": "Compile ABI JSON to Solidity interface",
+  "main": "dist/lib/index.js",
+  "bin": {
+    "generate-random-abi": "dist/bin/generate-random-abi.js",
+    "abi-to-sol": "dist/bin/abi-to-sol.js"
+  },
+  "author": "g. nicholas d'andrea <nick@gnidan.org>",
+  "license": "MIT",
+  "scripts": {
+    "abi-to-sol": "ts-node ./bin/abi-to-sol.ts",
+    "prepare": "tsc",
+    "example": "ts-node ./bin/generate-sample.ts",
+    "test": "jest lib/**",
+    "test:test": "jest test/**",
+    "test:dist": "yarn prepare && jest dist/lib",
+    "test:dist:test": "yarn prepare && jest dist/test"
+  },
+  "devDependencies": {
+    "@truffle/contract-schema": "^3.2.5",
+    "@types/faker": "^5.1.2",
+    "@types/jest": "^26.0.14",
+    "@types/jest-json-schema": "^2.1.2",
+    "@types/prettier": "^2.1.1",
+    "change-case": "^4.1.1",
+    "faker": "^5.1.0",
+    "fast-check": "^2.4.0",
+    "husky": ">=4",
+    "jest": "^26.4.2",
+    "jest-fast-check": "^0.0.1",
+    "jest-json-schema": "^2.1.0",
+    "lint-staged": ">=10",
+    "solc": "^0.7.2",
+    "ts-jest": "^26.4.0",
+    "ts-node": "^9.0.0",
+    "typescript": "^4.0.3"
+  },
+  "dependencies": {
+    "@truffle/codec": "^0.6.2",
+    "better-ajv-errors": "^0.6.7",
+    "neodoc": "^2.0.2",
+    "prettier": "^2.1.2",
+    "prettier-plugin-solidity": "^1.0.0-alpha.58"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js,css,md}": "prettier --write"
+  }
+}
