@@ -1,6 +1,6 @@
 {
   "name": "abi-to-sol",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Compile ABI JSON to Solidity interface",
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
