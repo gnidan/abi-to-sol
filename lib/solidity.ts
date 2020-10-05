@@ -16,6 +16,8 @@ import {
 
 import {Visitor, VisitOptions, dispatch} from "./visitor";
 
+import * as defaults from "./defaults";
+
 import {
   Component,
   Declaration,
@@ -25,7 +27,7 @@ import {
 
 export interface GenerateSolidityOptions {
   abi: Abi | SchemaAbi;
-  name: string;
+  name?: string;
   solidityVersion?: string;
   license?: string;
 }
@@ -75,9 +77,9 @@ class SolidityGenerator implements Visitor<string, Context> {
 
   constructor({
     declarations,
-    name,
-    license = "UNLICENSED",
-    solidityVersion = ">=0.5.0 <0.8.0",
+    name = defaults.name,
+    license = defaults.license,
+    solidityVersion = defaults.solidityVersion,
   }: ConstructorOptions) {
     this.name = name;
     this.license = license;

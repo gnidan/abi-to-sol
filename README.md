@@ -28,13 +28,13 @@ Options:
 
 ```console
 <name>
-  Name of generated interface
+  Name of generated interface. Default: MyInterface
 
 --validate
   Validate JSON before starting
 
 -V --solidity-version
-  Version of Solidity (for pragma)
+  Version of Solidity (for pragma). Default: >=0.5.0 <0.8.0
 
 -L --license
   SPDX license identifier. default: UNLICENSED
