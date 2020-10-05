@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
+const neodoc = require("neodoc");
 import {Abi as SchemaAbi} from "@truffle/contract-schema/spec";
 import * as abiSchema from "@truffle/contract-schema/spec/abi.spec.json";
 import betterAjvErrors from "better-ajv-errors";
 import Ajv from "ajv";
 
 import {generateSolidity} from "../lib";
-const neodoc = require("neodoc");
+import * as defaults from "../lib/defaults";
 
 const usage = `
 abi-to-sol
@@ -22,16 +23,16 @@ Usage:
 
 Options:
   <name>
-    Name of generated interface
+    Name of generated interface. Default: ${defaults.name}
 
   --validate
     Validate JSON before starting
 
   -V --solidity-version
-    Version of Solidity (for pragma)
+    Version of Solidity (for pragma). Default: ${defaults.solidityVersion}
 
   -L --license
-    SPDX license identifier. default: UNLICENSED
+    SPDX license identifier. Default: ${defaults.license}
 
   -h --help     Show this screen.
   --version     Show version.
@@ -66,9 +67,9 @@ const main = async () => {
   const validate = ajv.compile(abiSchema);
 
   const options = {
-    solidityVersion: args["-V"] || args["--solidity-version"] || "^0.7.0",
-    name: args["<name>"] || "MyInterface",
-    license: args["-L"] || args["--license"] || "UNLICENSED",
+    solidityVersion: args["-V"] || args["--solidity-version"],
+    name: args["<name>"],
+    license: args["-L"] || args["--license"],
     validate: args["--validate"] || false,
   };
 
