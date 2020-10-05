@@ -16,7 +16,7 @@
   "scripts": {
     "abi-to-sol": "ts-node ./bin/abi-to-sol.ts",
     "prepare": "tsc",
-    "example": "ts-node ./bin/generate-sample.ts",
+    "generate-random-abi": "ts-node ./bin/generate-random-abi.ts",
     "test": "jest lib/**",
     "test:test": "jest test/**",
     "test:dist": "yarn prepare && jest dist/lib",
