@@ -52,7 +52,8 @@
     "better-ajv-errors": "^0.6.7",
     "neodoc": "^2.0.2",
     "prettier": "^2.1.2",
-    "prettier-plugin-solidity": "^1.0.0-alpha.58"
+    "prettier-plugin-solidity": "^1.0.0-alpha.58",
+    "source-map-support": "^0.5.19"
   },
   "husky": {
     "hooks": {
