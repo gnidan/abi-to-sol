@@ -19,7 +19,7 @@ export namespace Numerics {
 
 export namespace Primitives {
   export const Uint = () => Numerics.Bits().map((m) => `uint${m}`);
-  export const Int = () => Numerics.Bits().map((m) => `uint${m}`);
+  export const Int = () => Numerics.Bits().map((m) => `int${m}`);
   export const Address = () => fc.constant("address");
   export const Bool = () => fc.constant("bool");
   export const Fixed = () =>
