@@ -3587,10 +3587,10 @@ prelude-ls@~1.1.2:
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
   integrity sha1-IZMqVJ9eUv/ZqCf1cOBL5iqX2lQ=
 
-prettier-plugin-solidity@^1.0.0-alpha.58:
-  version "1.0.0-alpha.58"
-  resolved "https://registry.yarnpkg.com/prettier-plugin-solidity/-/prettier-plugin-solidity-1.0.0-alpha.58.tgz#87e44b21bd9bd6ad4b28b1ac62ccdce59fb82fe3"
-  integrity sha512-G2xj98uEtfTcSc4qZcQ+MLwibpDNhBmOJk9ezTJ7uQLtTMGP1X9PqRnRlJW/vxbStPw/TVvnYD5rXwd1KZbTsg==
+prettier-plugin-solidity@^1.0.0-alpha.59:
+  version "1.0.0-alpha.59"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-solidity/-/prettier-plugin-solidity-1.0.0-alpha.59.tgz#b0cf82fb068537d152d0bc417588d08e952a56c6"
+  integrity sha512-6cE0SWaiYCBoJY4clCfsbWlEEOU4K42Ny6Tg4Jwprgts/q+AVfYnPQ5coRs7zIjYzc4RVspifYPeh+oAg8RpLw==
   dependencies:
     "@solidity-parser/parser" "^0.8.1"
     dir-to-object "^2.0.0"
