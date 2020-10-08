@@ -182,8 +182,7 @@ export const Event = () =>
       const names = inputs.map(({name}) => name).filter((name) => name !== "");
       return names.length === new Set(names).size;
     }),
-    anonymous: fc.constant(false), // TODO replace with boolean
-    // anonymous: fc.boolean()
+    anonymous: fc.boolean(),
   });
 
 export const NormalFunction = () =>

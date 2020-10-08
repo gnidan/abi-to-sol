@@ -96,5 +96,3 @@ interface ENS {
 - Detect `internalType` for function pointers (parameter type `function`) and
   emit parameter.
 - Omit `pragma experimental ABIEncoderV2;` when it's not necessary
-- Anonymous events
-  (waiting on [prettier-solidity/prettier-plugin-solidity#350](https://github.com/prettier-solidity/prettier-plugin-solidity/issues/350))
