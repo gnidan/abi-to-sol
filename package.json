@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@truffle/codec": "^0.6.4",
-    "@truffle/contract-schema": "^3.2.5",
+    "@truffle/contract-schema": "^3.3.0",
     "ajv": "^6.12.5",
     "better-ajv-errors": "^0.6.7",
     "neodoc": "^2.0.2",
