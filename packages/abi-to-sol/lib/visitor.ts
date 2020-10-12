@@ -1,18 +1,5 @@
 import {Abi as SchemaAbi} from "@truffle/contract-schema/spec";
-import * as Codec from "@truffle/codec";
-
-import {
-  Node,
-  isAbi,
-  isAbiEntry,
-  Abi,
-  FunctionAbiEntry,
-  ConstructorAbiEntry,
-  FallbackAbiEntry,
-  ReceiveAbiEntry,
-  EventAbiEntry,
-  AbiParameter,
-} from "./types";
+import * as Abi from "@truffle/abi-utils";
 
 export interface VisitOptions<N extends Node, C = undefined> {
   node: N;
@@ -20,13 +7,13 @@ export interface VisitOptions<N extends Node, C = undefined> {
 }
 
 export interface Visitor<T, C = undefined> {
-  visitAbi(options: VisitOptions<Abi, C>): T;
-  visitFunctionAbiEntry(options: VisitOptions<FunctionAbiEntry, C>): T;
-  visitConstructorAbiEntry(options: VisitOptions<ConstructorAbiEntry, C>): T;
-  visitFallbackAbiEntry(options: VisitOptions<FallbackAbiEntry, C>): T;
-  visitReceiveAbiEntry(options: VisitOptions<ReceiveAbiEntry, C>): T;
-  visitEventAbiEntry(options: VisitOptions<EventAbiEntry, C>): T;
-  visitAbiParameter(options: VisitOptions<AbiParameter, C>): T;
+  visitAbi(options: VisitOptions<Abi.Abi, C>): T;
+  visitFunctionEntry(options: VisitOptions<Abi.FunctionEntry, C>): T;
+  visitConstructorEntry(options: VisitOptions<Abi.ConstructorEntry, C>): T;
+  visitFallbackEntry(options: VisitOptions<Abi.FallbackEntry, C>): T;
+  visitReceiveEntry(options: VisitOptions<Abi.ReceiveEntry, C>): T;
+  visitEventEntry(options: VisitOptions<Abi.EventEntry, C>): T;
+  visitParameter(options: VisitOptions<Abi.Parameter, C>): T;
 }
 
 export interface DispatchOptions<T, C> {
@@ -35,28 +22,50 @@ export interface DispatchOptions<T, C> {
   context?: C;
 }
 
+export type Node =
+  | Abi.Abi
+  | Abi.Entry
+  | Abi.FunctionEntry
+  | Abi.ConstructorEntry
+  | Abi.FallbackEntry
+  | Abi.ReceiveEntry
+  | Abi.EventEntry
+  | Abi.Parameter
+  | Abi.EventParameter;
+
 export const dispatch = <T, C>(options: DispatchOptions<T, C>): T => {
   const {node, visitor, context} = options;
 
   if (isAbi(node)) {
     return visitor.visitAbi({
-      node: Codec.AbiData.Utils.schemaAbiToAbi(node),
+      node: Abi.normalize(node),
       context,
     });
-  } else if (isAbiEntry(node)) {
+  } else if (isEntry(node)) {
     switch (node.type) {
       case "function":
-        return visitor.visitFunctionAbiEntry({node, context});
+        return visitor.visitFunctionEntry({node, context});
       case "constructor":
-        return visitor.visitConstructorAbiEntry({node, context});
+        return visitor.visitConstructorEntry({node, context});
       case "fallback":
-        return visitor.visitFallbackAbiEntry({node, context});
+        return visitor.visitFallbackEntry({node, context});
       case "receive":
-        return visitor.visitReceiveAbiEntry({node, context});
+        return visitor.visitReceiveEntry({node, context});
       case "event":
-        return visitor.visitEventAbiEntry({node, context});
+        return visitor.visitEventEntry({node, context});
     }
   } else {
-    return visitor.visitAbiParameter({node, context});
+    return visitor.visitParameter({node, context});
   }
 };
+
+const isAbi = (node: Node | SchemaAbi): node is Abi.Abi | SchemaAbi =>
+  node instanceof Array;
+
+const isEntry = (node: Node): node is Abi.Entry =>
+  typeof node === "object" &&
+  "type" in node &&
+  ["function", "constructor", "fallback", "receive", "event"].includes(
+    node.type
+  ) &&
+  (node.type !== "function" || "stateMutability" in node || "constant" in node);
