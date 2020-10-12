@@ -1,17 +1,8 @@
 import {Abi as SchemaAbi} from "@truffle/contract-schema/spec";
 import * as Codec from "@truffle/codec";
+import * as Abi from "@truffle/abi-utils";
 
-import {
-  Node,
-  Abi,
-  AbiParameter,
-  EventAbiEntry,
-  FunctionAbiEntry,
-  ConstructorAbiEntry,
-  FallbackAbiEntry,
-  ReceiveAbiEntry,
-} from "./types";
-import {Visitor, VisitOptions, dispatch} from "./visitor";
+import {Visitor, VisitOptions, dispatch, Node} from "./visitor";
 
 export interface Component {
   name: string;
@@ -29,49 +20,47 @@ export interface Declarations {
 }
 
 export class DeclarationsCollector implements Visitor<Declarations> {
-  visitAbi({node: nodes}: VisitOptions<Abi>): Declarations {
+  visitAbi({node: nodes}: VisitOptions<Abi.Abi>): Declarations {
     return nodes
       .map((node) => dispatch({node, visitor: this}))
       .reduce((a, b) => ({...a, ...b}), {});
   }
 
-  visitEventAbiEntry({node: entry}: VisitOptions<EventAbiEntry>): Declarations {
+  visitEventEntry({node: entry}: VisitOptions<Abi.EventEntry>): Declarations {
     return entry.inputs
       .map((node) => dispatch({node, visitor: this}))
       .reduce((a, b) => ({...a, ...b}), {});
   }
 
-  visitFunctionAbiEntry({
+  visitFunctionEntry({
     node: entry,
-  }: VisitOptions<FunctionAbiEntry>): Declarations {
+  }: VisitOptions<Abi.FunctionEntry>): Declarations {
     return [...entry.inputs, ...(entry.outputs || [])]
       .map((node) => dispatch({node, visitor: this}))
       .reduce((a, b) => ({...a, ...b}), {});
   }
 
-  visitConstructorAbiEntry({
+  visitConstructorEntry({
     node: entry,
-  }: VisitOptions<ConstructorAbiEntry>): Declarations {
+  }: VisitOptions<Abi.ConstructorEntry>): Declarations {
     return entry.inputs
       .map((node) => dispatch({node, visitor: this}))
       .reduce((a, b) => ({...a, ...b}), {});
   }
 
-  visitFallbackAbiEntry({
+  visitFallbackEntry({
     node: entry,
-  }: VisitOptions<FallbackAbiEntry>): Declarations {
+  }: VisitOptions<Abi.FallbackEntry>): Declarations {
     return {};
   }
 
-  visitReceiveAbiEntry({
+  visitReceiveEntry({
     node: entry,
-  }: VisitOptions<ReceiveAbiEntry>): Declarations {
+  }: VisitOptions<Abi.ReceiveEntry>): Declarations {
     return {};
   }
 
-  visitAbiParameter({
-    node: parameter,
-  }: VisitOptions<AbiParameter>): Declarations {
+  visitParameter({node: parameter}: VisitOptions<Abi.Parameter>): Declarations {
     if (!parameter.type.startsWith("tuple")) {
       return {};
     }
@@ -99,8 +88,8 @@ export class DeclarationsCollector implements Visitor<Declarations> {
 
     const declarations = {
       ...components
-        .map((component: AbiParameter) =>
-          this.visitAbiParameter({node: component})
+        .map((component: Abi.Parameter) =>
+          this.visitParameter({node: component})
         )
         .reduce((a, b) => ({...a, ...b}), {}),
 
