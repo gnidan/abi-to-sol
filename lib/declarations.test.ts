@@ -1,9 +1,7 @@
 import * as fc from "fast-check";
 import {testProp} from "jest-fast-check";
-import * as Arbitrary from "../test/arbitrary";
+import {Arbitrary} from "@truffle/abi-utils";
 import * as Example from "../test/custom-example";
-
-import * as Codec from "@truffle/codec";
 
 import {collectDeclarations} from "./declarations";
 

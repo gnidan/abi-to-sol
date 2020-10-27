@@ -1,12 +1,9 @@
 import * as fc from "fast-check";
 import {testProp} from "jest-fast-check";
-import * as Arbitrary from "../test/arbitrary";
+import * as Abi from "@truffle/abi-utils";
 import * as Example from "../test/custom-example";
 import {compileAbi} from "../test/compile-abi";
-
-import * as Codec from "@truffle/codec";
-
-import {Abi} from "./types";
+import {excludesFunctionParameters} from "../test/preflight";
 
 import {generateSolidity} from "./solidity";
 
@@ -29,8 +26,11 @@ const removeProps = (obj: any, keys: Set<string>) => {
 };
 
 describe("generateSolidity", () => {
-  testProp("compiles to input ABI", [Arbitrary.Abi()], (abi) => {
-    fc.pre(abi.every(({type}) => type !== "constructor"));
+  testProp("compiles to input ABI", [Abi.Arbitrary.Abi()], (abi) => {
+    fc.pre(
+      abi.every((entry) => "type" in entry && entry.type !== "constructor")
+    );
+    fc.pre(excludesFunctionParameters(abi));
 
     fc.pre(abi.length > 0);
 
@@ -52,33 +52,13 @@ describe("generateSolidity", () => {
       removeProps(resultAbi, new Set(["internalType"]))
     );
 
-    const expectedAbi = new Set(
-      removeProps(
-        abi
-          .filter(({type}) => type !== "constructor")
-          .map((entry) => ({
-            ...entry,
-            type: entry.type || "function",
-          }))
-          .map((entry) => {
-            if (entry.type !== "function") {
-              return entry;
-            }
-
-            return {
-              ...entry,
-              outputs: (entry as any).outputs || [],
-            };
-          }),
-        new Set(["payable", "constant"])
-      )
-    );
+    const expectedAbi = new Set(Abi.normalize(abi));
 
     expect(compiledAbi).toEqual(expectedAbi);
   });
 
   describe("custom example", () => {
-    const abiWithoutConstructor = Codec.AbiData.Utils.schemaAbiToAbi(
+    const abiWithoutConstructor = Abi.normalize(
       Example.abi.filter(({type}) => type !== "constructor")
     );
 
