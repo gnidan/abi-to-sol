@@ -19,24 +19,34 @@ export interface GenerateSolidityOptions {
   name?: string;
   solidityVersion?: string;
   license?: string;
+  prettifyOutput?: boolean;
 }
 
 export const generateSolidity = ({
   abi,
-  ...options
+  name = defaults.name,
+  solidityVersion = defaults.solidityVersion,
+  license = defaults.license,
+  prettifyOutput = defaults.prettifyOutput,
 }: GenerateSolidityOptions) => {
   const generated = dispatch({
     node: abi,
     visitor: new SolidityGenerator({
-      ...options,
+      name,
+      solidityVersion,
+      license,
       declarations: collectDeclarations(abi),
     }),
   });
 
+  if (!prettifyOutput) {
+    return generated;
+  }
+
   try {
     return prettier.format(generated, {
       plugins: ["prettier-plugin-solidity"],
-      // @ts-ignore
+      // @ts-expect-error
       parser: "solidity-parse",
     });
   } catch (error) {
@@ -50,9 +60,8 @@ interface Context {
 
 type Visit<N extends Node> = VisitOptions<N, Context | undefined>;
 
-type ConstructorOptions = {declarations: Declarations} & Omit<
-  GenerateSolidityOptions,
-  "abi"
+type ConstructorOptions = {declarations: Declarations} & Required<
+  Omit<GenerateSolidityOptions, "abi" | "prettifyOutput">
 >;
 
 class SolidityGenerator implements Visitor<string, Context | undefined> {
@@ -66,9 +75,9 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
 
   constructor({
     declarations,
-    name = defaults.name,
-    license = defaults.license,
-    solidityVersion = defaults.solidityVersion,
+    name,
+    license,
+    solidityVersion,
   }: ConstructorOptions) {
     this.name = name;
     this.license = license;
