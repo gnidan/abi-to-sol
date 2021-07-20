@@ -23,7 +23,8 @@
   "homepage": "https://github.com/gnidan/abi-to-sol#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gnidan/abi-to-sol.git"
+    "url": "https://github.com/gnidan/abi-to-sol.git",
+    "directory": "packages/abi-to-sol"
   },
   "devDependencies": {
     "@types/faker": "^5.1.2",
@@ -50,9 +51,11 @@
     "ajv": "^6.12.5",
     "better-ajv-errors": "^0.6.7",
     "neodoc": "^2.0.2",
-    "prettier": "^2.1.2",
-    "prettier-plugin-solidity": "1.0.0-alpha.59",
     "source-map-support": "^0.5.19"
+  },
+  "optionalDependencies": {
+    "prettier": "^2.1.2",
+    "prettier-plugin-solidity": "1.0.0-alpha.59"
   },
   "husky": {
     "hooks": {

@@ -3,9 +3,14 @@
   "private": true,
   "scripts": {
     "prepare": "lerna bootstrap",
-    "test": "lerna run test"
+    "test": "lerna run test --stream --concurrency=1 -- --colors"
   },
   "devDependencies": {
     "lerna": "^4.0.0"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
   }
 }

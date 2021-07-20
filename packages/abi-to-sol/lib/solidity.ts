@@ -1,7 +1,14 @@
-import prettier from "prettier";
+import type Prettier from "prettier";
 import * as Codec from "@truffle/codec";
 import * as Abi from "@truffle/abi-utils";
 import {Abi as SchemaAbi} from "@truffle/contract-schema/spec";
+
+let prettier: typeof Prettier
+try {
+  prettier = require("prettier");
+} catch {
+  // no-op
+}
 
 import {Visitor, VisitOptions, dispatch, Node} from "./visitor";
 
@@ -27,8 +34,12 @@ export const generateSolidity = ({
   name = defaults.name,
   solidityVersion = defaults.solidityVersion,
   license = defaults.license,
-  prettifyOutput = defaults.prettifyOutput,
+  prettifyOutput = prettier && defaults.prettifyOutput,
 }: GenerateSolidityOptions) => {
+  if (!prettier && prettifyOutput) {
+    throw new Error("Could not require() prettier");
+  }
+
   const generated = dispatch({
     node: abi,
     visitor: new SolidityGenerator({
