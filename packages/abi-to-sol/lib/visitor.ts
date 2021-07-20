@@ -41,7 +41,9 @@ export const dispatch = <T, C>(options: DispatchOptions<T, C>): T => {
       node: Abi.normalize(node),
       context,
     });
-  } else if (isEntry(node)) {
+  }
+
+  if (isEntry(node)) {
     switch (node.type) {
       case "function":
         return visitor.visitFunctionEntry({node, context});
@@ -54,9 +56,9 @@ export const dispatch = <T, C>(options: DispatchOptions<T, C>): T => {
       case "event":
         return visitor.visitEventEntry({node, context});
     }
-  } else {
-    return visitor.visitParameter({node, context});
   }
+
+  return visitor.visitParameter({node, context});
 };
 
 const isAbi = (node: Node | SchemaAbi): node is Abi.Abi | SchemaAbi =>

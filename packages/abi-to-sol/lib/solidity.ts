@@ -46,7 +46,7 @@ export const generateSolidity = ({
   try {
     return prettier.format(generated, {
       plugins: ["prettier-plugin-solidity"],
-      // @ts-expect-error
+      // @ts-ignore
       parser: "solidity-parse",
     });
   } catch (error) {
