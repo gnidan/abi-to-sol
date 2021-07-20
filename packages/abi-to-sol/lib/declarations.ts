@@ -82,7 +82,8 @@ export class DeclarationsCollector implements Visitor<Declarations> {
     if ("internalType" in parameter && parameter.internalType) {
       const match = parameter.internalType.match(/struct ([^\[]+).*/);
       if (match) {
-        declaration.identifier = match[1];
+        // HACK remove
+        declaration.identifier = match[1].replace(/[^0-9a-zA-Z_]/gi, "_");
       }
     }
 
