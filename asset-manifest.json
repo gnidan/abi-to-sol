@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.js": "/abi-to-sol/static/js/main.1ea5b43b.chunk.js",
-    "main.js.map": "/abi-to-sol/static/js/main.1ea5b43b.chunk.js.map",
-    "runtime-main.js": "/abi-to-sol/static/js/runtime-main.ec31dc0e.js",
-    "runtime-main.js.map": "/abi-to-sol/static/js/runtime-main.ec31dc0e.js.map",
-    "static/css/2.92cc431f.chunk.css": "/abi-to-sol/static/css/2.92cc431f.chunk.css",
-    "static/js/2.9faa3c9a.chunk.js": "/abi-to-sol/static/js/2.9faa3c9a.chunk.js",
-    "static/js/2.9faa3c9a.chunk.js.map": "/abi-to-sol/static/js/2.9faa3c9a.chunk.js.map",
-    "static/js/3.745b4cc5.chunk.js": "/abi-to-sol/static/js/3.745b4cc5.chunk.js",
-    "static/js/3.745b4cc5.chunk.js.map": "/abi-to-sol/static/js/3.745b4cc5.chunk.js.map",
-    "index.html": "/abi-to-sol/index.html",
-    "static/css/2.92cc431f.chunk.css.map": "/abi-to-sol/static/css/2.92cc431f.chunk.css.map",
-    "static/js/2.9faa3c9a.chunk.js.LICENSE.txt": "/abi-to-sol/static/js/2.9faa3c9a.chunk.js.LICENSE.txt"
+    "main.js": "https://gnidan.github.io/abi-to-sol/static/js/main.1ea5b43b.chunk.js",
+    "main.js.map": "https://gnidan.github.io/abi-to-sol/static/js/main.1ea5b43b.chunk.js.map",
+    "runtime-main.js": "https://gnidan.github.io/abi-to-sol/static/js/runtime-main.a8e9e5ea.js",
+    "runtime-main.js.map": "https://gnidan.github.io/abi-to-sol/static/js/runtime-main.a8e9e5ea.js.map",
+    "static/css/2.92cc431f.chunk.css": "https://gnidan.github.io/abi-to-sol/static/css/2.92cc431f.chunk.css",
+    "static/js/2.a13b3d3a.chunk.js": "https://gnidan.github.io/abi-to-sol/static/js/2.a13b3d3a.chunk.js",
+    "static/js/2.a13b3d3a.chunk.js.map": "https://gnidan.github.io/abi-to-sol/static/js/2.a13b3d3a.chunk.js.map",
+    "static/js/3.745b4cc5.chunk.js": "https://gnidan.github.io/abi-to-sol/static/js/3.745b4cc5.chunk.js",
+    "static/js/3.745b4cc5.chunk.js.map": "https://gnidan.github.io/abi-to-sol/static/js/3.745b4cc5.chunk.js.map",
+    "index.html": "https://gnidan.github.io/abi-to-sol/index.html",
+    "static/css/2.92cc431f.chunk.css.map": "https://gnidan.github.io/abi-to-sol/static/css/2.92cc431f.chunk.css.map",
+    "static/js/2.a13b3d3a.chunk.js.LICENSE.txt": "https://gnidan.github.io/abi-to-sol/static/js/2.a13b3d3a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.ec31dc0e.js",
+    "static/js/runtime-main.a8e9e5ea.js",
     "static/css/2.92cc431f.chunk.css",
-    "static/js/2.9faa3c9a.chunk.js",
+    "static/js/2.a13b3d3a.chunk.js",
     "static/js/main.1ea5b43b.chunk.js"
   ]
 }
