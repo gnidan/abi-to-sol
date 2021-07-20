@@ -3,6 +3,17 @@ import * as Codec from "@truffle/codec";
 import * as Abi from "@truffle/abi-utils";
 import {Abi as SchemaAbi} from "@truffle/contract-schema/spec";
 
+import {Visitor, VisitOptions, dispatch, Node} from "./visitor";
+import { featuresForVersion, VersionFeatures } from "./version-features";
+import * as defaults from "./defaults";
+import {
+  Component,
+  Declaration,
+  Declarations,
+  collectDeclarations,
+} from "./declarations";
+import { collectAbiFeatures, AbiFeatures } from "./abi-features";
+
 let prettier: typeof Prettier
 try {
   prettier = require("prettier");
@@ -10,16 +21,6 @@ try {
   // no-op
 }
 
-import {Visitor, VisitOptions, dispatch, Node} from "./visitor";
-
-import * as defaults from "./defaults";
-
-import {
-  Component,
-  Declaration,
-  Declarations,
-  collectDeclarations,
-} from "./declarations";
 
 export interface GenerateSolidityOptions {
   abi: Abi.Abi | SchemaAbi;
@@ -40,13 +41,19 @@ export const generateSolidity = ({
     throw new Error("Could not require() prettier");
   }
 
+  const versionFeatures = featuresForVersion(solidityVersion);
+  const abiFeatures = collectAbiFeatures(abi);
+  const declarations = collectDeclarations(abi);
+
   const generated = dispatch({
     node: abi,
     visitor: new SolidityGenerator({
       name,
       solidityVersion,
       license,
-      declarations: collectDeclarations(abi),
+      versionFeatures,
+      abiFeatures,
+      declarations,
     }),
   });
 
@@ -71,7 +78,11 @@ interface Context {
 
 type Visit<N extends Node> = VisitOptions<N, Context | undefined>;
 
-type ConstructorOptions = {declarations: Declarations} & Required<
+type ConstructorOptions = {
+  versionFeatures: VersionFeatures;
+  abiFeatures: AbiFeatures;
+  declarations: Declarations;
+} & Required<
   Omit<GenerateSolidityOptions, "abi" | "prettifyOutput">
 >;
 
@@ -79,21 +90,27 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
   private name: string;
   private license: string;
   private solidityVersion: string;
+  private versionFeatures: VersionFeatures;
+  private abiFeatures: AbiFeatures;
   private declarations: Declarations;
   private identifiers: {
     [signature: string]: string;
   };
 
   constructor({
-    declarations,
     name,
     license,
     solidityVersion,
+    versionFeatures,
+    abiFeatures,
+    declarations,
   }: ConstructorOptions) {
     this.name = name;
     this.license = license;
-    this.declarations = declarations;
     this.solidityVersion = solidityVersion;
+    this.versionFeatures = versionFeatures;
+    this.abiFeatures = abiFeatures;
+    this.declarations = declarations;
 
     this.identifiers = {};
     let index = 0;
@@ -130,7 +147,13 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
               parameter.type.includes("[") ||
               parameter.type === "bytes" ||
               parameter.type === "string"
-                ? ["memory"]
+                ? [
+                    this.versionFeatures.has("memory-array-parameters")
+                      ? "memory"
+                      : this.versionFeatures.has("calldata-array-parameters")
+                      ? "calldata"
+                      : "",
+                  ]
                 : [],
           },
         })
@@ -169,16 +192,37 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
     return "";
   }
 
-  visitFallbackEntry({node: entry}: Visit<Abi.FallbackEntry>): string {
-    const {stateMutability} = entry;
-    return `fallback () external ${
-      stateMutability === "payable" ? "payable" : ""
-    };`;
-  }
+   visitFallbackEntry({ node: entry }: Visit<Abi.FallbackEntry>): string {
+    const servesAsReceive =
+      !this.versionFeatures.has("separate-receive-function") &&
+      this.abiFeatures.has("defines-receive");
 
-  visitReceiveEntry() {
-    return `receive () external payable;`;
-  }
+     const { stateMutability } = entry;
+    return `${
+      this.versionFeatures.has("use-fallback-keyword") ? "fallback" : "function"
+    } () external ${
+      stateMutability === "payable" || servesAsReceive ? "payable" : ""
+     };`;
+   }
+
+   visitReceiveEntry() {
+    // if version has receive, emit as normal
+    if (this.versionFeatures.has("separate-receive-function")) {
+      return `receive () external payable;`;
+    }
+
+    // if this ABI defines a fallback separately, emit nothing, since
+    // visitFallbackEntry will cover it
+    if (this.abiFeatures.has("defines-fallback")) {
+      return "";
+    }
+
+    // otherwise, explicitly invoke visitFallbackEntry
+    return this.visitFallbackEntry({
+      node: { type: "fallback", stateMutability: "payable" },
+    });
+   }
+
 
   visitEventEntry({node: entry}: Visit<Abi.EventEntry>): string {
     const {name, inputs, anonymous} = entry;
