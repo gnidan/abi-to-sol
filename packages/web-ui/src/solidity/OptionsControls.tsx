@@ -13,6 +13,7 @@ import { InfoIcon } from "@chakra-ui/icons";
 import * as Options from "./Options";
 import * as Examples from "../abi/Examples";
 import { examples } from "../abi/Examples";
+import { defaults } from "abi-to-sol";
 
 
 export const OptionsControls = () => {
@@ -56,7 +57,7 @@ export const OptionsControls = () => {
         <Select
           id="version"
           value={options.solidityVersion || ""}
-          placeholder="Choose version"
+          placeholder={defaults.solidityVersion}
           onChange={(event: React.ChangeEvent<HTMLSelectElement>) => {
             setSolidityVersion(event.target.value)
           }}
