@@ -68,7 +68,7 @@
     "forceConsistentCasingInFileNames": true  /* Disallow inconsistently-cased references to the same file. */
   },
   "include": [
-    "./lib/**/*.ts",
+    "./src/**/*.ts",
     "./test/**/*.ts",
     "./bin/**/*.ts"
   ]
