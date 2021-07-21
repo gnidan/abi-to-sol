@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from "@chakra-ui/react";
+import { Alert, AlertIcon, AlertTitle, AlertDescription, Box } from "@chakra-ui/react";
 
 import * as Output from "./Output";
 
@@ -16,6 +16,8 @@ export const Code = () => {
 
   const [html, setHtml] = React.useState("");
   const [showHtml, setShowHtml] = React.useState(false);
+
+  const error = "error" in result && result.error;
 
   React.useEffect(() => {
     if (isGenerating) {
@@ -43,6 +45,13 @@ export const Code = () => {
 
   return (
     <Box paddingTop="1em">
+      {error && (
+        <Alert status="error">
+          <AlertIcon />
+          <AlertTitle mr={2}>Could not generate Solidity!</AlertTitle>
+          <AlertDescription>{error.message}</AlertDescription>
+        </Alert>
+    )}
       {showHtml && (
         <pre dangerouslySetInnerHTML={{
           __html: html
