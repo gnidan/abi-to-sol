@@ -11,7 +11,9 @@ export const allFeatures = [
 ] as const;
 
 export type AbiFeature = typeof allFeatures[number];
-export type AbiFeatures = Set<AbiFeature>;
+export type AbiFeatures = Partial<{
+  [F in AbiFeature]: true
+}>;
 
 export const collectAbiFeatures = (node: SchemaAbi | Node) =>
   dispatch({
@@ -23,13 +25,13 @@ export class AbiFeaturesCollector implements Visitor<AbiFeatures> {
   visitAbi({ node: nodes }: VisitOptions<Abi.Abi>): AbiFeatures {
     return nodes
       .map((node) => dispatch({ node, visitor: this }))
-      .reduce((a, b) => new Set([...a, ...b]), new Set<AbiFeature>());
+      .reduce((a, b) => ({ ...a, ...b }), {});
   }
 
   visitEventEntry({ node: entry }: VisitOptions<Abi.EventEntry>): AbiFeatures {
     return entry.inputs
       .map((node) => dispatch({ node, visitor: this }))
-      .reduce((a, b) => new Set([...a, ...b]), new Set<AbiFeature>());
+      .reduce((a, b) => ({ ...a, ...b }), {});
   }
 
   visitFunctionEntry({
@@ -37,7 +39,7 @@ export class AbiFeaturesCollector implements Visitor<AbiFeatures> {
   }: VisitOptions<Abi.FunctionEntry>): AbiFeatures {
     return [...entry.inputs, ...(entry.outputs || [])]
       .map((node) => dispatch({ node, visitor: this }))
-      .reduce((a, b) => new Set([...a, ...b]), new Set<AbiFeature>());
+      .reduce((a, b) => ({ ...a, ...b }), {});
   }
 
   visitConstructorEntry({
@@ -45,19 +47,19 @@ export class AbiFeaturesCollector implements Visitor<AbiFeatures> {
   }: VisitOptions<Abi.ConstructorEntry>): AbiFeatures {
     return entry.inputs
       .map((node) => dispatch({ node, visitor: this }))
-      .reduce((a, b) => new Set([...a, ...b]), new Set<AbiFeature>());
+      .reduce((a, b) => ({ ...a, ...b }), {});
   }
 
   visitFallbackEntry({
     node: entry,
   }: VisitOptions<Abi.FallbackEntry>): AbiFeatures {
-    return new Set(["defines-fallback"]);
+    return { "defines-fallback": true };
   }
 
   visitReceiveEntry({
     node: entry,
   }: VisitOptions<Abi.ReceiveEntry>): AbiFeatures {
-    return new Set(["defines-receive"]);
+    return { "defines-receive": true };
   }
 
   visitParameter({
@@ -69,9 +71,9 @@ export class AbiFeaturesCollector implements Visitor<AbiFeatures> {
       parameter.type.includes("bytes[") || // arrays of bytes
       parameter.type.includes("][") // anything with nested arrays
     ) {
-      return new Set(["needs-abiencoder-v2"]);
+      return { "needs-abiencoder-v2": true };
     }
 
-    return new Set();
+    return {};
   }
 }
