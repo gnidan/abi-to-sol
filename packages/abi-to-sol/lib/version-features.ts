@@ -22,7 +22,7 @@ export const allFeatures = {
   }
 } as const;
 
-type AllFeatures = typeof allFeatures;
+export type AllFeatures = typeof allFeatures;
 
 export type Category = keyof AllFeatures;
 
