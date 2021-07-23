@@ -4,7 +4,11 @@ import * as Abi from "@truffle/abi-utils";
 
 import { Visitor, VisitOptions, dispatch, Node } from "./visitor";
 
-export const allFeatures = ["defines-receive", "defines-fallback"] as const;
+export const allFeatures = [
+  "defines-receive",
+  "defines-fallback",
+  "needs-abiencoder-v2",
+] as const;
 
 export type AbiFeature = typeof allFeatures[number];
 export type AbiFeatures = Set<AbiFeature>;
@@ -59,6 +63,15 @@ export class AbiFeaturesCollector implements Visitor<AbiFeatures> {
   visitParameter({
     node: parameter,
   }: VisitOptions<Abi.Parameter>): AbiFeatures {
+    if (
+      parameter.type.startsWith("tuple") || // anything with tuples
+      parameter.type.includes("string[") || // arrays of strings
+      parameter.type.includes("bytes[") || // arrays of bytes
+      parameter.type.includes("][") // anything with nested arrays
+    ) {
+      return new Set(["needs-abiencoder-v2"]);
+    }
+
     return new Set();
   }
 }
