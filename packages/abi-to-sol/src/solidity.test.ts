@@ -30,6 +30,9 @@ describe("generateSolidity", () => {
     fc.pre(
       abi.every((entry) => "type" in entry && entry.type !== "constructor")
     );
+    fc.pre(
+      abi.every((entry) => "type" in entry && entry.type !== "error")
+    );
     fc.pre(excludesFunctionParameters(abi));
 
     fc.pre(abi.length > 0);

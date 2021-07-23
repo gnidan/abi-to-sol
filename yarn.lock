@@ -3248,10 +3248,10 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
-"@truffle/abi-utils@^0.1.0":
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/@truffle/abi-utils/-/abi-utils-0.1.6.tgz#d754a54caec2577efaa05f0ca66c58e73676884e"
-  integrity sha512-A9bW5XHywPNHod8rsu4x4eyM4C6k3eMeyOCd47edhiA/e9kgAVp6J3QDzKoHS8nuJ2qiaq+jk5bLnAgNWAHYyQ==
+"@truffle/abi-utils@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@truffle/abi-utils/-/abi-utils-0.2.2.tgz#2d1b92a2ffb7887ec5a0163cd5415aab552b34af"
+  integrity sha512-GRphTbgqrsz0B43t5gNGRlMNV/L3LUv9oZXWqw6+ySEiZo1l/p6AA8cPmHp9jbA/dHyqx4MKSQ94qTR2siy0Eg==
   dependencies:
     change-case "3.0.2"
     faker "^5.3.1"
