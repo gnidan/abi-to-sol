@@ -97,3 +97,4 @@ interface ENS {
 - Detect `internalType` for `enum`s and emit stub declaration.
 - Detect `internalType` for function pointers (parameter type `function`) and
   emit parameter.
+- Recognize and emit ABI-defined errors (from Solidity >=0.8.4)
