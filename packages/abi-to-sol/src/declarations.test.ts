@@ -14,7 +14,10 @@ describe("collectDeclarations", () => {
         (parameter) => {
           fc.pre(!parameter.type.startsWith("tuple"));
 
-          expect(collectDeclarations(parameter)).toEqual({});
+          expect(collectDeclarations(parameter)).toEqual({
+            signatureDeclarations: {},
+            containerSignatures: {}
+          });
         }
       );
     });
@@ -32,9 +35,9 @@ describe("collectDeclarations", () => {
           );
 
           const declarations = collectDeclarations(parameter);
-          expect(Object.keys(declarations)).toHaveLength(1);
+          expect(Object.keys(declarations.signatureDeclarations)).toHaveLength(1);
 
-          const [declaration] = Object.values(declarations);
+          const [declaration] = Object.values(declarations.signatureDeclarations);
           expect(declaration).toHaveProperty("components");
 
           const {components} = declaration;
@@ -70,7 +73,7 @@ describe("collectDeclarations", () => {
           );
 
           const declarations = collectDeclarations(parameter);
-          expect(Object.keys(declarations)).toHaveLength(2);
+          expect(Object.keys(declarations.signatureDeclarations)).toHaveLength(2);
         }
       );
     });
@@ -85,10 +88,10 @@ describe("collectDeclarations", () => {
 
         const declarations = collectDeclarations(parameter);
 
-        for (const {components} of Object.values(declarations)) {
+        for (const {components} of Object.values(declarations.signatureDeclarations)) {
           for (const {signature} of components) {
             if (signature) {
-              expect(declarations).toHaveProperty(signature);
+              expect(declarations.signatureDeclarations).toHaveProperty(signature);
             }
           }
         }
@@ -104,13 +107,13 @@ describe("collectDeclarations", () => {
     )) {
       describe(`struct ${structName}`, () => {
         it("exists in declarations", () => {
-          expect(declarations).toHaveProperty(signature);
+          expect(declarations.signatureDeclarations).toHaveProperty(signature);
         });
 
         const expectedComponents = (Example.expectedDeclarations as any)[
           structName
         ];
-        const declaration = declarations[signature];
+        const declaration = declarations.signatureDeclarations[signature];
 
         for (const [componentName, component] of Object.entries(
           expectedComponents

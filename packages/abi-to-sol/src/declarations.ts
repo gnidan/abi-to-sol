@@ -16,20 +16,25 @@ export interface Declaration {
 }
 
 export interface Declarations {
-  [signature: string]: Declaration;
+  signatureDeclarations: {
+    [signature: string]: Declaration;
+  };
+  containerSignatures: {
+    [container: string]: string[];
+  }
 }
 
 export class DeclarationsCollector implements Visitor<Declarations> {
   visitAbi({node: nodes}: VisitOptions<Abi.Abi>): Declarations {
     return nodes
       .map((node) => dispatch({node, visitor: this}))
-      .reduce((a, b) => ({...a, ...b}), {});
+      .reduce(mergeDeclarations, emptyDeclarations());
   }
 
   visitEventEntry({node: entry}: VisitOptions<Abi.EventEntry>): Declarations {
     return entry.inputs
       .map((node) => dispatch({node, visitor: this}))
-      .reduce((a, b) => ({...a, ...b}), {});
+      .reduce(mergeDeclarations, emptyDeclarations());
   }
 
   visitFunctionEntry({
@@ -37,7 +42,7 @@ export class DeclarationsCollector implements Visitor<Declarations> {
   }: VisitOptions<Abi.FunctionEntry>): Declarations {
     return [...entry.inputs, ...(entry.outputs || [])]
       .map((node) => dispatch({node, visitor: this}))
-      .reduce((a, b) => ({...a, ...b}), {});
+      .reduce(mergeDeclarations, emptyDeclarations());
   }
 
   visitConstructorEntry({
@@ -45,26 +50,27 @@ export class DeclarationsCollector implements Visitor<Declarations> {
   }: VisitOptions<Abi.ConstructorEntry>): Declarations {
     return entry.inputs
       .map((node) => dispatch({node, visitor: this}))
-      .reduce((a, b) => ({...a, ...b}), {});
+      .reduce(mergeDeclarations, emptyDeclarations());
   }
 
   visitFallbackEntry({
     node: entry,
   }: VisitOptions<Abi.FallbackEntry>): Declarations {
-    return {};
+    return emptyDeclarations();
   }
 
   visitReceiveEntry({
     node: entry,
   }: VisitOptions<Abi.ReceiveEntry>): Declarations {
-    return {};
+    return emptyDeclarations();
   }
 
   visitParameter({node: parameter}: VisitOptions<Abi.Parameter>): Declarations {
     if (!parameter.type.startsWith("tuple")) {
-      return {};
+      return emptyDeclarations();
     }
 
+    let container = "";
     const components = parameter.components || [];
     const signature = Codec.AbiData.Utils.abiTupleSignature(components);
     const declaration: Declaration = {
@@ -82,22 +88,34 @@ export class DeclarationsCollector implements Visitor<Declarations> {
     if ("internalType" in parameter && parameter.internalType) {
       const match = parameter.internalType.match(/struct ([^\[]+).*/);
       if (match) {
-        // HACK remove
-        declaration.identifier = match[1].replace(/[^0-9a-zA-Z_]/gi, "_");
+        const possiblyQualifiedIdentifier = match[1];
+        const parts = possiblyQualifiedIdentifier.split(".");
+        if (parts.length === 1) {
+          declaration.identifier = parts[0];
+        } else if (parts.length === 2) {
+          container = parts[0];
+          declaration.identifier = parts[1];
+        }
       }
     }
 
     const declarations = {
-      ...components
-        .map((component: Abi.Parameter) =>
-          this.visitParameter({node: component})
-        )
-        .reduce((a, b) => ({...a, ...b}), {}),
-
-      [signature]: declaration,
+      signatureDeclarations: {
+        [signature]: declaration
+      },
+      containerSignatures: {
+        [container]: [signature]
+      }
     };
 
-    return declarations;
+    const componentDeclarations: Declarations = components
+      .map((component: Abi.Parameter) =>
+        this.visitParameter({node: component})
+      )
+      .reduce(mergeDeclarations, emptyDeclarations())
+
+
+    return mergeDeclarations(declarations, componentDeclarations);
   }
 }
 
@@ -106,3 +124,37 @@ export const collectDeclarations = (node: SchemaAbi | Node) =>
     node,
     visitor: new DeclarationsCollector(),
   });
+
+function mergeDeclarations(
+  a: Declarations,
+  b: Declarations
+): Declarations {
+  const declarations: Declarations = {
+    signatureDeclarations: {
+      ...a.signatureDeclarations,
+      ...b.signatureDeclarations
+    },
+    containerSignatures: {
+      ...a.containerSignatures,
+      // add b iteratively separately to merge arrays
+    }
+  };
+
+  for (const [container, signatures] of Object.entries(b.containerSignatures)) {
+    const mergedSignatures = new Set([
+      ...(declarations.containerSignatures[container] || []),
+      ...signatures
+    ])
+
+    declarations.containerSignatures[container] = [...mergedSignatures];
+  }
+
+  return declarations;
+}
+
+function emptyDeclarations(): Declarations {
+  return {
+    signatureDeclarations: {},
+    containerSignatures: {}
+  };
+}
