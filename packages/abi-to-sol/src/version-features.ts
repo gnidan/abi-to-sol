@@ -19,6 +19,10 @@ export const allFeatures = {
   "abiencoder-v2": {
     ">=0.8.0": "default",
     "<0.8.0": "experimental",
+  },
+  "global-structs": {
+    ">=0.6.0": true,
+    "<0.6.0": false
   }
 } as const;
 
