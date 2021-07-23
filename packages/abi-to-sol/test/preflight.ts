@@ -1,7 +1,7 @@
 import {Abi as SchemaAbi} from "@truffle/contract-schema/spec";
 import * as Abi from "@truffle/abi-utils";
 
-import {Visitor, VisitOptions, dispatch, Node} from "../lib/visitor";
+import {Visitor, VisitOptions, dispatch, Node} from "../src/visitor";
 
 export const excludesFunctionParameters = (node: SchemaAbi | Abi.Abi) =>
   dispatch({

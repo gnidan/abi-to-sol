@@ -6,8 +6,8 @@ import * as abiSchema from "@truffle/contract-schema/spec/abi.spec.json";
 import betterAjvErrors from "better-ajv-errors";
 import Ajv from "ajv";
 
-import {generateSolidity} from "../lib";
-import * as defaults from "../lib/defaults";
+import {generateSolidity} from "../src";
+import * as defaults from "../src/defaults";
 
 const usage = `
 abi-to-sol

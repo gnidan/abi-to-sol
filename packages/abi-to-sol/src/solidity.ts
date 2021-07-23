@@ -188,7 +188,7 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
 
    visitFallbackEntry({ node: entry }: Visit<Abi.FallbackEntry>): string {
     const servesAsReceive =
-      this.abiFeatures.has("defines-receive") && (
+      this.abiFeatures["defines-receive"] && (
         !this.versionFeatures["receive-keyword"] ||
         this.versionFeatures["receive-keyword"] === mixed
       )
@@ -207,7 +207,7 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
 
     // if this ABI defines a fallback separately, emit nothing, since
     // visitFallbackEntry will cover it
-    if (this.abiFeatures.has("defines-fallback")) {
+    if (this.abiFeatures["defines-fallback"]) {
       return "";
     }
 
@@ -250,7 +250,7 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
 
   private generateHeader(): string {
     const includeExperimentalPragma =
-      this.abiFeatures.has("needs-abiencoder-v2") &&
+      this.abiFeatures["needs-abiencoder-v2"] &&
       this.versionFeatures["abiencoder-v2"] !== "default";
 
     return [

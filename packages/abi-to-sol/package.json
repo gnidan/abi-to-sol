@@ -2,8 +2,8 @@
   "name": "abi-to-sol",
   "version": "0.3.0",
   "description": "Compile ABI JSON to Solidity interface",
-  "main": "dist/lib/index.js",
-  "types": "dist/lib/index.d.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "bin": {
     "abi-to-sol": "dist/bin/abi-to-sol.js"
   },
@@ -15,9 +15,9 @@
   "scripts": {
     "abi-to-sol": "ts-node ./bin/abi-to-sol.ts",
     "prepare": "tsc",
-    "test": "jest lib/**",
+    "test": "jest src/**",
     "test:test": "jest test/**",
-    "test:dist": "yarn prepare && jest dist/lib",
+    "test:dist": "yarn prepare && jest dist/src",
     "test:dist:test": "yarn prepare && jest dist/test"
   },
   "homepage": "https://github.com/gnidan/abi-to-sol#readme",
