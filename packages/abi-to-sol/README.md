@@ -1,12 +1,14 @@
 # abi-to-sol
 
-[![npm version](https://badge.fury.io/js/abi-to-sol.svg)](https://www.npmjs.com/package/abi-to-sol) [![Join the chat at https://gitter.im/gnidan/abi-to-sol](https://badges.gitter.im/gnidan/abi-to-sol.svg)](https://gitter.im/gnidan/abi-to-sol?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![npm version](https://badge.fury.io/js/abi-to-sol.svg)](https://www.npmjs.com/package/abi-to-sol)
+[![Join the chat at https://gitter.im/gnidan/abi-to-sol](https://badges.gitter.im/gnidan/abi-to-sol.svg)](https://gitter.im/gnidan/abi-to-sol?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 _Generate Solidity `interface` source from a given ABI JSON!_
 
 ## Installation
 
-No need to install - just use [npx](https://www.npmjs.com/package/npx) (e.g. `npx abi-to-sol`).
+No need to install - just use [npx](https://www.npmjs.com/package/npx) (e.g.
+`npx abi-to-sol`).
 
 Alternatively, install globally via:
 
@@ -95,4 +97,3 @@ interface ENS {
 - Detect `internalType` for `enum`s and emit stub declaration.
 - Detect `internalType` for function pointers (parameter type `function`) and
   emit parameter.
-- Omit `pragma experimental ABIEncoderV2;` when it's not necessary
