@@ -1,6 +1,6 @@
 {
   "name": "@abi-to-sol/web-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "description": "Web UI for abi-to-sol",
   "author": "g. nicholas d'andrea <gnidan@trufflesuite.com>",
@@ -34,7 +34,7 @@
     "@types/react-dom": "^17.0.0",
     "@typescript-eslint/eslint-plugin": "^4.5.0",
     "@typescript-eslint/parser": "^4.5.0",
-    "abi-to-sol": "^0.3.0",
+    "abi-to-sol": "^0.4.0",
     "add": "^2.0.6",
     "babel-eslint": "^10.1.0",
     "babel-jest": "^26.6.0",
