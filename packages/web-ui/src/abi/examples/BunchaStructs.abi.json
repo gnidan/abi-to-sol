@@ -1,0 +1,73 @@
+[
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"components": [
+					{
+						"internalType": "uint256",
+						"name": "a",
+						"type": "uint256"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct BunchaStructs.A[]",
+				"name": "a",
+				"type": "tuple[]"
+			},
+			{
+				"components": [
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"components": [
+											{
+												"internalType": "address",
+												"name": "e",
+												"type": "address"
+											}
+										],
+										"internalType": "struct Other.E",
+										"name": "e",
+										"type": "tuple"
+									},
+									{
+										"internalType": "string",
+										"name": "d",
+										"type": "string"
+									}
+								],
+								"internalType": "struct C[]",
+								"name": "c",
+								"type": "tuple[]"
+							}
+						],
+						"internalType": "struct B",
+						"name": "b",
+						"type": "tuple"
+					},
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "e",
+								"type": "address"
+							}
+						],
+						"internalType": "struct Other.E",
+						"name": "e",
+						"type": "tuple"
+					}
+				],
+				"indexed": false,
+				"internalType": "struct Other.D",
+				"name": "d",
+				"type": "tuple"
+			}
+		],
+		"name": "Event",
+		"type": "event"
+	}
+]

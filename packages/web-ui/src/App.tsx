@@ -19,7 +19,20 @@ function App() {
       <ChakraProvider>
         <Abi.Input.Container.Provider
           initialState={JSON.stringify([
-            { type: "event", name: "Magic", inputs: [], anonymous: false }
+            {
+              type: "event",
+              name: "Magic",
+              inputs: [{
+                internalType: "struct Magic",
+                name: "magic",
+                type: "tuple[]",
+                indexed: false,
+                components: [
+                  { name: "magic", type: "string" }
+                ]
+              }],
+              anonymous: false
+            }
           ], undefined, 2)}
         >
           <Solidity.Options.Container.Provider>
