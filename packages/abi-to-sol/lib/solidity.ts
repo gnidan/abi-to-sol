@@ -4,7 +4,7 @@ import * as Abi from "@truffle/abi-utils";
 import {Abi as SchemaAbi} from "@truffle/contract-schema/spec";
 
 import {Visitor, VisitOptions, dispatch, Node} from "./visitor";
-import { featuresForVersion, VersionFeatures } from "./version-features";
+import { forRange, VersionFeatures, mixed } from "./version-features";
 import * as defaults from "./defaults";
 import {
   Component,
@@ -41,7 +41,7 @@ export const generateSolidity = ({
     throw new Error("Could not require() prettier");
   }
 
-  const versionFeatures = featuresForVersion(solidityVersion);
+  const versionFeatures = forRange(solidityVersion);
   const abiFeatures = collectAbiFeatures(abi);
   const declarations = collectDeclarations(abi);
 
@@ -147,13 +147,7 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
               parameter.type.includes("[") ||
               parameter.type === "bytes" ||
               parameter.type === "string"
-                ? [
-                    this.versionFeatures.has("memory-array-parameters")
-                      ? "memory"
-                      : this.versionFeatures.has("calldata-array-parameters")
-                      ? "calldata"
-                      : "",
-                  ]
+                ? [this.generateArrayParameterLocation(parameter)]
                 : [],
           },
         })
@@ -194,20 +188,20 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
 
    visitFallbackEntry({ node: entry }: Visit<Abi.FallbackEntry>): string {
     const servesAsReceive =
-      !this.versionFeatures.has("separate-receive-function") &&
-      this.abiFeatures.has("defines-receive");
+      this.abiFeatures.has("defines-receive") && (
+        !this.versionFeatures["receive-keyword"] ||
+        this.versionFeatures["receive-keyword"] === mixed
+      )
 
      const { stateMutability } = entry;
-    return `${
-      this.versionFeatures.has("use-fallback-keyword") ? "fallback" : "function"
-    } () external ${
+    return `${this.generateFallbackName()} () external ${
       stateMutability === "payable" || servesAsReceive ? "payable" : ""
      };`;
    }
 
    visitReceiveEntry() {
     // if version has receive, emit as normal
-    if (this.versionFeatures.has("separate-receive-function")) {
+    if (this.versionFeatures["receive-keyword"] === true) {
       return `receive () external payable;`;
     }
 
@@ -324,6 +318,40 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
     }
 
     return "";
+  }
+
+  private generateFallbackName(): string {
+    console.debug("fallback-keyword %o", this.versionFeatures["fallback-keyword"]);
+    switch (this.versionFeatures["fallback-keyword"]) {
+      case true: {
+        return "fallback";
+      }
+      case false: {
+        return "function";
+      }
+      case mixed: {
+        throw new Error(
+          `Desired Solidity range lacks unambigious fallback syntax.`
+        );
+      }
+    }
+  }
+
+  private generateArrayParameterLocation(parameter: Abi.Parameter): string {
+    switch (this.versionFeatures["array-parameter-location"]) {
+      case undefined: {
+        return "";
+      }
+      case mixed: {
+        throw new Error(
+          `Desired Solidity range lacks unambiguous location specifier for ` +
+          `parameter of type "${parameter.type}".`
+        );
+      }
+      default: {
+        return this.versionFeatures["array-parameter-location"];
+      }
+    }
   }
 
   private generateInterface(abi: Abi.Abi): string {
