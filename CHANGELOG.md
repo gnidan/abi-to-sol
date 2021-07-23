@@ -1,5 +1,13 @@
 # abi-to-sol changelog
 
+## v0.4.1 (unreleased)
+
+### Dependency updates
+
+- Update dependency: @truffle/abi-utils@^0.2.2
+  ([#29](https://github.com/gnidan/abi-to-sol/pull/29) by
+  [@gnidan](https://github.com/gnidan))
+
 ## v0.4.0
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.4.0).
