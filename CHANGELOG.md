@@ -2,6 +2,12 @@
 
 ## v0.4.1 (unreleased)
 
+### Fixes
+
+- Properly error when generating structs on unsupported Solidity versions
+  ([#32](https://github.com/gnidan/abi-to-sol/pull/32) by
+  [@gnidan](https://github.com/gnidan))
+
 ### Internal improvements
 
 - Enforce CHANGELOG entries in pull requests

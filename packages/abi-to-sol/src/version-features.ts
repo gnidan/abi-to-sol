@@ -23,7 +23,11 @@ export const allFeatures = {
   "global-structs": {
     ">=0.6.0": true,
     "<0.6.0": false
-  }
+  },
+  "structs-in-interfaces": {
+    ">=0.5.0": true,
+    "<0.5.0": false
+  },
 } as const;
 
 export type AllFeatures = typeof allFeatures;

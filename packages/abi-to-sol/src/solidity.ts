@@ -299,6 +299,9 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
   }
 
   private generateDeclarations(): string {
+    if (!this.versionFeatures["structs-in-interfaces"] && Object.keys(this.declarations.signatureDeclarations).length > 0) {
+      throw new Error("abi-to-sol does not support custom struct types for this Solidity version");
+    }
     const externalContainers = Object.keys(this.declarations.containerSignatures)
       .filter(container => container !== "" && container !== this.name);
 
