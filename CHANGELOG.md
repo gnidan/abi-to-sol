@@ -2,6 +2,12 @@
 
 ## v0.4.1 (unreleased)
 
+### Internal improvements
+
+- Enforce CHANGELOG entries in pull requests
+  ([#30](https://github.com/gnidan/abi-to-sol/pull/30) by
+  [@gnidan](https://github.com/gnidan))
+
 ### Dependency updates
 
 - Update dependency: @truffle/abi-utils@^0.2.2
