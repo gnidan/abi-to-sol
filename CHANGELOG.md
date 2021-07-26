@@ -14,6 +14,12 @@
   ([#29](https://github.com/gnidan/abi-to-sol/pull/29) by
   [@gnidan](https://github.com/gnidan))
 
+### web-ui changes
+
+- Switch to react-simple-code-editor
+  ([#31](https://github.com/gnidan/abi-to-sol/pull/31) by
+  [@gnidan](https://github.com/gnidan))
+
 ## v0.4.0
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.4.0).
