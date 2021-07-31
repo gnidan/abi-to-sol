@@ -28,6 +28,10 @@ export const allFeatures = {
     ">=0.5.0": true,
     "<0.5.0": false
   },
+  "custom-errors": {
+    ">=0.8.4": true,
+    "<0.8.4": false
+  },
 } as const;
 
 export type AllFeatures = typeof allFeatures;

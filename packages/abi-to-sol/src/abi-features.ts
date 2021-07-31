@@ -8,6 +8,7 @@ export const allFeatures = [
   "defines-receive",
   "defines-fallback",
   "needs-abiencoder-v2",
+  "defines-error",
 ] as const;
 
 export type AbiFeature = typeof allFeatures[number];
@@ -29,6 +30,12 @@ export class AbiFeaturesCollector implements Visitor<AbiFeatures> {
   }
 
   visitEventEntry({ node: entry }: VisitOptions<Abi.EventEntry>): AbiFeatures {
+    return entry.inputs
+      .map((node) => dispatch({ node, visitor: this }))
+      .reduce((a, b) => ({ ...a, ...b }), {});
+  }
+
+  visitErrorEntry({ node: entry }: VisitOptions<Abi.ErrorEntry>): AbiFeatures {
     return entry.inputs
       .map((node) => dispatch({ node, visitor: this }))
       .reduce((a, b) => ({ ...a, ...b }), {});
