@@ -237,7 +237,7 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
     return this.visitFallbackEntry({
       node: { type: "fallback", stateMutability: "payable" },
     });
-   }
+ }
 
 
   visitEventEntry({node: entry, context}: Visit<Abi.EventEntry>): string {
@@ -259,6 +259,29 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
       ),
       `)`,
       `${anonymous ? "anonymous" : ""};`,
+    ].join(" ");
+  }
+
+  visitErrorEntry({node: entry, context}: Visit<Abi.ErrorEntry>): string {
+    if (this.versionFeatures["custom-errors"] !== true) {
+      throw new Error("ABI defines custom errors; use Solidity v0.8.4 or higher");
+    }
+
+    const {name, inputs} = entry;
+
+    return [
+      `error ${name}(`,
+      inputs.map((node) =>
+        dispatch({
+          node,
+          visitor: this,
+          context: {
+            ...context,
+            parameterModifiers: (parameter: Abi.Parameter) => []
+          },
+        })
+      ),
+      `);`,
     ].join(" ");
   }
 

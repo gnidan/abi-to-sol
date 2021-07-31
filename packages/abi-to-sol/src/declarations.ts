@@ -37,6 +37,12 @@ export class DeclarationsCollector implements Visitor<Declarations> {
       .reduce(mergeDeclarations, emptyDeclarations());
   }
 
+  visitErrorEntry({node: entry}: VisitOptions<Abi.ErrorEntry>): Declarations {
+    return entry.inputs
+      .map((node) => dispatch({node, visitor: this}))
+      .reduce(mergeDeclarations, emptyDeclarations());
+  }
+
   visitFunctionEntry({
     node: entry,
   }: VisitOptions<Abi.FunctionEntry>): Declarations {

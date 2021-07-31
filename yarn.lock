@@ -13931,10 +13931,10 @@ socks@^2.3.3:
     ip "^1.1.5"
     smart-buffer "^4.1.0"
 
-solc@^0.7.2:
-  version "0.7.6"
-  resolved "https://registry.yarnpkg.com/solc/-/solc-0.7.6.tgz#21fc5dc11b85fcc518c181578b454f3271c27252"
-  integrity sha512-WsR/W7CXwh2VnmZapB4JrsDeLlshoKBz5Pz/zYNulB6LBsOEHI2Zj/GeKLMFcvv57OHiXHvxq5ZOQB+EdqxlxQ==
+solc@^0.8.6:
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/solc/-/solc-0.8.6.tgz#e4341fa6780137df97b94a0cfbd59b3f2037d0e0"
+  integrity sha512-miiDaWdaUnD7A6Cktb/2ug9f+ajcOCDYRr7vgbPEsMoutSlBtp5rca57oMg8iHSuM7jilwdxePujWI/+rbNftQ==
   dependencies:
     command-exists "^1.2.8"
     commander "3.0.2"
