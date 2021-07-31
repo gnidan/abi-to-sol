@@ -1,6 +1,11 @@
 # abi-to-sol changelog
 
-## v0.4.1 (unreleased)
+## v0.5.0 (unreleased)
+
+### New features
+
+- Support custom ABI errors ([#33](https://github.com/gnidan/abi-to-sol/pull/33)
+  by [@gnidan](https://github.com/gnidan))
 
 ### Fixes
 
