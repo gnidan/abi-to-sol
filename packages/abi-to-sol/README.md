@@ -5,7 +5,12 @@
 
 _Generate Solidity `interface` source from a given ABI JSON!_
 
-## Installation
+## Try online!
+
+Skip the terminal and just use the hosted
+[Web UI](https://gnidan.github.io/abi-to-sol).
+
+## CLI instructions
 
 No need to install - just use [npx](https://www.npmjs.com/package/npx) (e.g.
 `npx abi-to-sol`).
@@ -16,7 +21,7 @@ Alternatively, install globally via:
 $ npm install -g abi-to-sol
 ```
 
-## Usage
+### Usage
 
 Pipe ABI JSON to stdin, get Solidity on stdout.
 
@@ -36,7 +41,7 @@ Options:
   Validate JSON before starting
 
 -V --solidity-version
-  Version of Solidity (for pragma). Default: >=0.5.0 <0.8.0
+  Version of Solidity (for pragma). Default: >=0.7.0 <0.9.0
 
 -L --license
   SPDX license identifier. default: UNLICENSED
@@ -45,7 +50,7 @@ Options:
 --version     Show version.
 ```
 
-## Example
+### Example
 
 Run the following command:
 
@@ -97,4 +102,3 @@ interface ENS {
 - Detect `internalType` for `enum`s and emit stub declaration.
 - Detect `internalType` for function pointers (parameter type `function`) and
   emit parameter.
-- Recognize and emit ABI-defined errors (from Solidity >=0.8.4)
