@@ -1,6 +1,6 @@
 # abi-to-sol changelog
 
-## v0.5.0 (unreleased)
+## v0.5.0
 
 ### New features
 
