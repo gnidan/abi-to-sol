@@ -127,7 +127,7 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
           identifier = `S_${index++}`
         } = declarations.signatureDeclarations[signature];
 
-        if (container === "" && !this.versionFeatures["global-structs"]) {
+        if (container === "" && this.versionFeatures["global-structs"] !== true) {
           this.identifiers[signature] = {
             container: shimGlobalInterfaceName,
             identifier
@@ -208,20 +208,17 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
     return "";
   }
 
-   visitFallbackEntry({ node: entry }: Visit<Abi.FallbackEntry>): string {
-    const servesAsReceive =
-      this.abiFeatures["defines-receive"] && (
-        !this.versionFeatures["receive-keyword"] ||
-        this.versionFeatures["receive-keyword"] === mixed
-      )
+  visitFallbackEntry({ node: entry }: Visit<Abi.FallbackEntry>): string {
+    const servesAsReceive = this.abiFeatures["defines-receive"] &&
+       this.versionFeatures["receive-keyword"] !== true;
 
-     const { stateMutability } = entry;
+    const { stateMutability } = entry;
     return `${this.generateFallbackName()} () external ${
       stateMutability === "payable" || servesAsReceive ? "payable" : ""
      };`;
-   }
+  }
 
-   visitReceiveEntry() {
+  visitReceiveEntry() {
     // if version has receive, emit as normal
     if (this.versionFeatures["receive-keyword"] === true) {
       return `receive () external payable;`;
@@ -237,8 +234,7 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
     return this.visitFallbackEntry({
       node: { type: "fallback", stateMutability: "payable" },
     });
- }
-
+  }
 
   visitEventEntry({node: entry, context}: Visit<Abi.EventEntry>): string {
     const {name, inputs, anonymous} = entry;
@@ -322,9 +318,15 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
   }
 
   private generateDeclarations(): string {
-    if (!this.versionFeatures["structs-in-interfaces"] && Object.keys(this.declarations.signatureDeclarations).length > 0) {
-      throw new Error("abi-to-sol does not support custom struct types for this Solidity version");
+    if (
+      this.versionFeatures["structs-in-interfaces"] !== true &&
+      Object.keys(this.declarations.signatureDeclarations).length > 0
+    ) {
+      throw new Error(
+        "abi-to-sol does not support custom struct types for this Solidity version"
+      );
     }
+
     const externalContainers = Object.keys(this.declarations.containerSignatures)
       .filter(container => container !== "" && container !== this.name);
 
@@ -338,7 +340,7 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
 
     const globalSignatures = this.declarations.containerSignatures[""] || [];
     if (globalSignatures.length > 0) {
-      const declarations = this.versionFeatures["global-structs"]
+      const declarations = this.versionFeatures["global-structs"] === true
         ? this.generateDeclarationsForContainer("")
         : [
             `interface ${shimGlobalInterfaceName} {`,
@@ -357,7 +359,7 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
       this.declarations.containerSignatures[container]
     );
 
-    if (container === "" && !this.versionFeatures["global-structs"]) {
+    if (container === "" && this.versionFeatures["global-structs"] !== true) {
       container = shimGlobalInterfaceName;
     }
 
@@ -403,7 +405,7 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
       return type.replace("tuple", `${container}.${identifier}`);
     }
 
-    if (!container && !this.versionFeatures["global-structs"]) {
+    if (!container && this.versionFeatures["global-structs"] !== true) {
       return type.replace("tuple", `${shimGlobalInterfaceName}.${identifier}`);
     }
 
