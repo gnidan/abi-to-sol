@@ -2,6 +2,8 @@
 
 ## v0.5.0
 
+See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.5.0).
+
 ### New features
 
 - Support custom ABI errors ([#33](https://github.com/gnidan/abi-to-sol/pull/33)
@@ -12,9 +14,8 @@
 - Properly error when generating structs on unsupported Solidity versions
   ([#32](https://github.com/gnidan/abi-to-sol/pull/32) by
   [@gnidan](https://github.com/gnidan))
-
 - Fix version-feature checks to succeed only when entire range has feature
-  ([#34](https://github.com/gnidan/abi-to-sol/pull/34) by
+  ([#35](https://github.com/gnidan/abi-to-sol/pull/35) by
   [@gnidan](https://github.com/gnidan))
 
 ### Internal improvements
