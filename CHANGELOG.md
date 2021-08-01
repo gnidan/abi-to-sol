@@ -13,6 +13,10 @@
   ([#32](https://github.com/gnidan/abi-to-sol/pull/32) by
   [@gnidan](https://github.com/gnidan))
 
+- Fix version-feature checks to succeed only when entire range has feature
+  ([#34](https://github.com/gnidan/abi-to-sol/pull/34) by
+  [@gnidan](https://github.com/gnidan))
+
 ### Internal improvements
 
 - Enforce CHANGELOG entries in pull requests
