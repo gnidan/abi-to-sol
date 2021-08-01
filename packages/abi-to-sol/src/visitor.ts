@@ -13,6 +13,7 @@ export interface Visitor<T, C = undefined> {
   visitFallbackEntry(options: VisitOptions<Abi.FallbackEntry, C>): T;
   visitReceiveEntry(options: VisitOptions<Abi.ReceiveEntry, C>): T;
   visitEventEntry(options: VisitOptions<Abi.EventEntry, C>): T;
+  visitErrorEntry(options: VisitOptions<Abi.ErrorEntry, C>): T;
   visitParameter(options: VisitOptions<Abi.Parameter, C>): T;
 }
 
@@ -55,6 +56,8 @@ export const dispatch = <T, C>(options: DispatchOptions<T, C>): T => {
         return visitor.visitReceiveEntry({node, context});
       case "event":
         return visitor.visitEventEntry({node, context});
+      case "error":
+        return visitor.visitErrorEntry({node, context});
     }
   }
 
@@ -67,7 +70,7 @@ const isAbi = (node: Node | SchemaAbi): node is Abi.Abi | SchemaAbi =>
 const isEntry = (node: Node): node is Abi.Entry =>
   typeof node === "object" &&
   "type" in node &&
-  ["function", "constructor", "fallback", "receive", "event"].includes(
+  ["function", "constructor", "fallback", "receive", "event", "error"].includes(
     node.type
   ) &&
   (node.type !== "function" || "stateMutability" in node || "constant" in node);

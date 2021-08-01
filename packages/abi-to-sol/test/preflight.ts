@@ -57,6 +57,14 @@ class FunctionParameterExcluder implements Visitor<boolean> {
       .reduce((a, b) => a && b, true);
   }
 
+  visitErrorEntry({node: entry}: VisitOptions<Abi.ErrorEntry>): boolean {
+    const {inputs} = entry;
+
+    return inputs
+      .map((node) => dispatch({node, visitor: this}))
+      .reduce((a, b) => a && b, true);
+  }
+
   visitParameter({node: parameter}: VisitOptions<Abi.Parameter>): boolean {
     if (parameter.type.startsWith("function")) {
       return false;

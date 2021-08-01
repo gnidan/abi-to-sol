@@ -37,7 +37,7 @@ describe("generateSolidity", () => {
     const output = generateSolidity({
       name: "MyInterface",
       abi,
-      solidityVersion: "^0.7.0",
+      solidityVersion: "^0.8.4",
     });
 
     let resultAbi;
@@ -65,7 +65,7 @@ describe("generateSolidity", () => {
     const output = generateSolidity({
       name: "Example",
       abi: abiWithoutConstructor,
-      solidityVersion: "^0.7.0",
+      solidityVersion: "^0.8.4",
     });
 
     it("generates output", () => {

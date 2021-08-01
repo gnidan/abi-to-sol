@@ -72,12 +72,12 @@ function App() {
                     overflow="hidden"
                     order={1}
                   >
-                    <Container flex={1}>
+                    <Container flex={1} height="100%" overflow="scroll">
                       <Abi.Editor />
                     </Container>
 
                     <Container height="100%" overflow="scroll">
-                        <Solidity.Code />
+                      <Solidity.Code />
                     </Container>
                   </Page>
 

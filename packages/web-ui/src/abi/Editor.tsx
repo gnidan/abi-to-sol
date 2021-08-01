@@ -1,8 +1,11 @@
 import React from "react";
+import { Box } from "@chakra-ui/react";
 
-import AceEditor from "react-ace";
-import "brace/mode/json";
-import "brace/theme/github";
+import SimpleEditor from "react-simple-code-editor";
+
+// Highlight.js setup
+import "highlight.js/styles/default.css";
+import hljs from "highlight.js";
 
 import * as Input from "./Input";
 
@@ -10,26 +13,19 @@ export const Editor = () => {
   const { contents, setContents } = Input.Container.useContainer();
 
   return (
-    <AceEditor
-      placeholder=""
-      mode="json"
-      theme="github"
-      name="abi-input-editor"
+    <Box
+      padding="16px 0px"
       height="100%"
-      width="100%"
-      onChange={setContents}
-      fontSize={14}
-      showPrintMargin={true}
-      showGutter={true}
-      highlightActiveLine={true}
-      value={contents}
-      setOptions={{
-        enableBasicAutocompletion: false,
-        enableLiveAutocompletion: false,
-        enableSnippets: false,
-        showLineNumbers: true,
-        tabSize: 2,
-      }}
-    />
+    >
+      <SimpleEditor
+        value={contents}
+        onValueChange={setContents}
+        highlight={(contents: string) => hljs.highlight(contents, { language: "json" }).value}
+        style={{
+          fontFamily: "SFMono-Regular,Menlo,Monaco,Consolas,monospace"
+
+        }}
+      />
+    </Box>
   );
 }

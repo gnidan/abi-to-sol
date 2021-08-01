@@ -62,7 +62,7 @@ export const OptionsControls = () => {
             setSolidityVersion(event.target.value)
           }}
         >
-          <option value="^0.8.0">^0.8.0</option>
+          <option value="^0.8.4">^0.8.4</option>
           <option value="^0.7.0">^0.7.0</option>
           <option value="^0.6.0">^0.6.0</option>
           <option value="^0.5.0">^0.5.0</option>
