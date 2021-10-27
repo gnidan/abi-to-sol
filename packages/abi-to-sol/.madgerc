@@ -1,0 +1,13 @@
+{
+  "excludeRegExp": [
+    "\\.test\\.ts$",
+    "\/test\/"
+  ],
+  "fileExtensions": ["js","ts"],
+  "detectiveOptions": {
+    "ts": {
+      "skipTypeImports": true
+    }
+  },
+  "tsConfig": "tsconfig.json"
+}

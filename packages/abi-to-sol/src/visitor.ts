@@ -18,13 +18,14 @@ export interface Visitor<T, C = undefined> {
 }
 
 export interface DispatchOptions<T, C> {
-  node: Node | SchemaAbi;
+  node: Node;
   visitor: Visitor<T, C>;
   context?: C;
 }
 
 export type Node =
   | Abi.Abi
+  | SchemaAbi
   | Abi.Entry
   | Abi.FunctionEntry
   | Abi.ConstructorEntry
@@ -70,6 +71,7 @@ const isAbi = (node: Node | SchemaAbi): node is Abi.Abi | SchemaAbi =>
 const isEntry = (node: Node): node is Abi.Entry =>
   typeof node === "object" &&
   "type" in node &&
+  typeof node.type === "string" &&
   ["function", "constructor", "fallback", "receive", "event", "error"].includes(
     node.type
   ) &&

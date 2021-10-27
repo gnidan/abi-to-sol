@@ -99,23 +99,3 @@ export const expectedSignatures: {[name: string]: string} = {
   Foo: "((uint256,uint256)[],uint256)",
   Bar: "(uint256,uint256)",
 };
-
-export const expectedDeclarations = {
-  Foo: {
-    bars: {
-      type: "tuple[]",
-      signature: expectedSignatures.Bar,
-    },
-    c: {
-      type: "uint256",
-    },
-  },
-  Bar: {
-    a: {
-      type: "uint256",
-    },
-    b: {
-      type: "uint256",
-    },
-  },
-};

@@ -1,0 +1,25 @@
+[
+	{
+		"inputs": [
+			{
+				"internalType": "Int",
+				"name": "i",
+				"type": "int256"
+			},
+			{
+				"internalType": "UDVTs.Uint",
+				"name": "u",
+				"type": "uint256"
+			},
+			{
+				"internalType": "Other.Bool",
+				"name": "b",
+				"type": "bool"
+			}
+		],
+		"name": "fnoo",
+		"outputs": [],
+		"stateMutability": "pure",
+		"type": "function"
+	}
+]

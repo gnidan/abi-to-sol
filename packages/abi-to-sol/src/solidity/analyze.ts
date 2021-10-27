@@ -1,40 +1,40 @@
 import type { Abi as SchemaAbi } from "@truffle/contract-schema/spec";
 import type * as Abi from "@truffle/abi-utils";
 
-import { Visitor, VisitOptions, dispatch, Node } from "./visitor";
+import { Visitor, VisitOptions, dispatch, Node } from "../visitor";
 
-export const allFeatures = [
+export const observableProperties = [
   "defines-receive",
   "defines-fallback",
   "needs-abiencoder-v2",
   "defines-error",
 ] as const;
 
-export type AbiFeature = typeof allFeatures[number];
-export type AbiFeatures = Partial<{
-  [F in AbiFeature]: true
+export type AbiProperty = typeof observableProperties[number];
+export type AbiProperties = Partial<{
+  [F in AbiProperty]: true
 }>;
 
-export const collectAbiFeatures = (node: SchemaAbi | Node) =>
+export const analyze = (node: SchemaAbi | Node) =>
   dispatch({
     node,
-    visitor: new AbiFeaturesCollector(),
+    visitor: new AbiPropertiesCollector(),
   });
 
-export class AbiFeaturesCollector implements Visitor<AbiFeatures> {
-  visitAbi({ node: nodes }: VisitOptions<Abi.Abi>): AbiFeatures {
+export class AbiPropertiesCollector implements Visitor<AbiProperties> {
+  visitAbi({ node: nodes }: VisitOptions<Abi.Abi>): AbiProperties {
     return nodes
       .map((node) => dispatch({ node, visitor: this }))
       .reduce((a, b) => ({ ...a, ...b }), {});
   }
 
-  visitEventEntry({ node: entry }: VisitOptions<Abi.EventEntry>): AbiFeatures {
+  visitEventEntry({ node: entry }: VisitOptions<Abi.EventEntry>): AbiProperties {
     return entry.inputs
       .map((node) => dispatch({ node, visitor: this }))
       .reduce((a, b) => ({ ...a, ...b }), {});
   }
 
-  visitErrorEntry({ node: entry }: VisitOptions<Abi.ErrorEntry>): AbiFeatures {
+  visitErrorEntry({ node: entry }: VisitOptions<Abi.ErrorEntry>): AbiProperties {
     return entry.inputs
       .map((node) => dispatch({ node, visitor: this }))
       .reduce((a, b) => ({ ...a, ...b }), {});
@@ -42,7 +42,7 @@ export class AbiFeaturesCollector implements Visitor<AbiFeatures> {
 
   visitFunctionEntry({
     node: entry,
-  }: VisitOptions<Abi.FunctionEntry>): AbiFeatures {
+  }: VisitOptions<Abi.FunctionEntry>): AbiProperties {
     return [...entry.inputs, ...(entry.outputs || [])]
       .map((node) => dispatch({ node, visitor: this }))
       .reduce((a, b) => ({ ...a, ...b }), {});
@@ -50,7 +50,7 @@ export class AbiFeaturesCollector implements Visitor<AbiFeatures> {
 
   visitConstructorEntry({
     node: entry,
-  }: VisitOptions<Abi.ConstructorEntry>): AbiFeatures {
+  }: VisitOptions<Abi.ConstructorEntry>): AbiProperties {
     return entry.inputs
       .map((node) => dispatch({ node, visitor: this }))
       .reduce((a, b) => ({ ...a, ...b }), {});
@@ -58,19 +58,19 @@ export class AbiFeaturesCollector implements Visitor<AbiFeatures> {
 
   visitFallbackEntry({
     node: entry,
-  }: VisitOptions<Abi.FallbackEntry>): AbiFeatures {
+  }: VisitOptions<Abi.FallbackEntry>): AbiProperties {
     return { "defines-fallback": true };
   }
 
   visitReceiveEntry({
     node: entry,
-  }: VisitOptions<Abi.ReceiveEntry>): AbiFeatures {
+  }: VisitOptions<Abi.ReceiveEntry>): AbiProperties {
     return { "defines-receive": true };
   }
 
   visitParameter({
     node: parameter,
-  }: VisitOptions<Abi.Parameter>): AbiFeatures {
+  }: VisitOptions<Abi.Parameter>): AbiProperties {
     if (
       parameter.type.startsWith("tuple") || // anything with tuples
       parameter.type.includes("string[") || // arrays of strings

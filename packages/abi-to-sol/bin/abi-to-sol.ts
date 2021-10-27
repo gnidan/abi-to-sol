@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import "source-map-support/register";
 
 const neodoc = require("neodoc");
 import {Abi as SchemaAbi} from "@truffle/contract-schema/spec";
@@ -6,8 +7,11 @@ import * as abiSchema from "@truffle/contract-schema/spec/abi.spec.json";
 import betterAjvErrors from "better-ajv-errors";
 import Ajv from "ajv";
 
-import {generateSolidity, GenerateSolidityMode} from "../src";
-import * as defaults from "../src/defaults";
+import {
+  generateSolidity,
+  defaults,
+  GenerateSolidityMode
+} from "../src";
 
 const usage = `
 abi-to-sol

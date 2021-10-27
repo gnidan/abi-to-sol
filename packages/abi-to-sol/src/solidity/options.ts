@@ -16,4 +16,3 @@ export interface GenerateSolidityOptions {
   outputSource?: boolean;
   prettifyOutput?: boolean;
 }
-

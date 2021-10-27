@@ -2,6 +2,12 @@
 
 ## vNext
 
+### New features
+
+- Rearchitect declaration internals to support UDVTs
+  ([#114](https://github.com/gnidan/abi-to-sol/pull/114) by
+  [@gnidan](https://github.com/gnidan))
+
 ### Project updates
 
 - Fix web UI deployment ([#112](https://github.com/gnidan/abi-to-sol/pull/112)
