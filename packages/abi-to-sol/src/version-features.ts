@@ -32,6 +32,10 @@ export const allFeatures = {
     ">=0.8.4": true,
     "<0.8.4": false
   },
+  "user-defined-value-types": {
+    ">=0.8.8": true,
+    "<0.8.8": false
+  }
 } as const;
 
 export type AllFeatures = typeof allFeatures;

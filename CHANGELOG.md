@@ -10,6 +10,10 @@
 - Update copyright notice ([#64](https://github.com/gnidan/abi-to-sol/pull/64)
   by [@gnidan](https://github.com/gnidan))
 
+- Add version feature knowledge for user-defined value types
+  ([#65](https://github.com/gnidan/abi-to-sol/pull/65) by
+  [@gnidan](https://github.com/gnidan))
+
 ### Dependency updates
 
 - Bump follow-redirects from 1.14.1 to 1.14.7
