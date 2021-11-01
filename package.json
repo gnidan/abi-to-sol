@@ -2,11 +2,13 @@
   "name": "root",
   "private": true,
   "scripts": {
+    "lernaupdate": "lernaupdate",
     "prepare": "lerna bootstrap",
     "test": "lerna run test --stream --concurrency=1 -- --colors"
   },
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "lerna": "^4.0.0",
+    "lerna-update-wizard": "^1.1.0"
   },
   "workspaces": {
     "packages": [
