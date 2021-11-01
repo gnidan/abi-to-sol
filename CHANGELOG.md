@@ -8,6 +8,10 @@
   ([#37](https://github.com/gnidan/abi-to-sol/pull/37) by
   [@gnidan](https://github.com/gnidan))
 
+- Upgrade typescript to ^4.4.4
+  ([#38](https://github.com/gnidan/abi-to-sol/pull/38) by
+  [@gnidan](https://github.com/gnidan))
+
 ## v0.5.0
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.5.0).
