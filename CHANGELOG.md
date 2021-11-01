@@ -1,5 +1,13 @@
 # abi-to-sol changelog
 
+## vNext
+
+### Internal improvements
+
+- Add script for upgrading dependencies
+  ([#37](https://github.com/gnidan/abi-to-sol/pull/37) by
+  [@gnidan](https://github.com/gnidan))
+
 ## v0.5.0
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.5.0).
