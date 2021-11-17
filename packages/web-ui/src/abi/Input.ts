@@ -83,7 +83,7 @@ function readContents(contents: string): ReadResult {
 
     return { abi };
   } catch (error) {
-    return { error };
+    return { error: error as Error };
   }
 }
 
