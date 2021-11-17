@@ -99,7 +99,7 @@ export const useOutput = (defaultContents: string = "") => {
     } catch (error) {
       setState({
         isGenerating: false,
-        error,
+        error: error as Error,
       });
     }
   }, [
