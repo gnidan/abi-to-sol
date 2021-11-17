@@ -99,6 +99,8 @@ interface ENS {
 
 ## Currently unsupported (PRs welcome! :wink:)
 
-- Detect `internalType` for `enum`s and emit stub declaration.
-- Detect `internalType` for function pointers (parameter type `function`) and
-  emit parameter.
+- [User defined value types](https://blog.soliditylang.org/2021/09/27/user-defined-value-types/)
+
+## Is this project useful to you?
+
+Feel free to donate to [gnidan.eth](https://etherscan.io/address/0xefef50ebacd8da3c13932ac204361b704eb8292c) ❤️

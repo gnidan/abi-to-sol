@@ -1,6 +1,20 @@
 # abi-to-sol changelog
 
+## v0.5.1
+
+### Internal improvements
+
+- Add script for upgrading dependencies
+  ([#37](https://github.com/gnidan/abi-to-sol/pull/37) by
+  [@gnidan](https://github.com/gnidan))
+
+- Upgrade typescript to ^4.4.4
+  ([#38](https://github.com/gnidan/abi-to-sol/pull/38) by
+  [@gnidan](https://github.com/gnidan))
+
 ## v0.5.0
+
+See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.5.0).
 
 ### New features
 
@@ -12,9 +26,8 @@
 - Properly error when generating structs on unsupported Solidity versions
   ([#32](https://github.com/gnidan/abi-to-sol/pull/32) by
   [@gnidan](https://github.com/gnidan))
-
 - Fix version-feature checks to succeed only when entire range has feature
-  ([#34](https://github.com/gnidan/abi-to-sol/pull/34) by
+  ([#35](https://github.com/gnidan/abi-to-sol/pull/35) by
   [@gnidan](https://github.com/gnidan))
 
 ### Internal improvements
