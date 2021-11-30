@@ -1,5 +1,13 @@
 # abi-to-sol changelog
 
+## vNext
+
+### Dependency updates
+
+- Update dependency: typescript@4.5.2
+  ([#43](https://github.com/gnidan/abi-to-sol/pull/43) by
+  [@gnidan](https://github.com/gnidan))
+
 ## v0.5.1
 
 ### Internal improvements
