@@ -50,7 +50,7 @@
     "@truffle/codec": "^0.7.1",
     "@truffle/contract-schema": "^3.3.1",
     "ajv": "^6.12.5",
-    "better-ajv-errors": "^0.6.7",
+    "better-ajv-errors": "^0.8.2",
     "neodoc": "^2.0.2",
     "semver": "^7.3.5",
     "source-map-support": "^0.5.19"
