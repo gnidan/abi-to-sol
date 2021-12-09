@@ -4,13 +4,17 @@
 
 ### Dependency updates
 
+- Update dependency: typescript@4.5.2
+  ([#43](https://github.com/gnidan/abi-to-sol/pull/43) by
+  [@gnidan](https://github.com/gnidan))
+
 - Update dependency: better-ajv-errors@^0.8.2
   ([#43](https://github.com/gnidan/abi-to-sol/pull/44) by
   [@gnidan](https://github.com/gnidan))
 
-- Update dependency: typescript@4.5.2
-  ([#43](https://github.com/gnidan/abi-to-sol/pull/43) by
-  [@gnidan](https://github.com/gnidan))
+- Bump tar from 4.4.13 to 4.4.19
+  ([#45](https://github.com/gnidan/abi-to-sol/pull/45) by
+  [@dependabot](https://github.com/dependabot))
 
 ## v0.5.1
 
