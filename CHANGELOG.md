@@ -16,6 +16,10 @@
   ([#45](https://github.com/gnidan/abi-to-sol/pull/45) by
   [@dependabot](https://github.com/dependabot))
 
+- Bump tmpl from 1.0.4 to 1.0.5
+  ([#45](https://github.com/gnidan/abi-to-sol/pull/46) by
+  [@dependabot](https://github.com/dependabot))
+
 ## v0.5.1
 
 ### Internal improvements
