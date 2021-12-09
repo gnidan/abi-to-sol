@@ -17,7 +17,11 @@
   [@dependabot](https://github.com/dependabot))
 
 - Bump tmpl from 1.0.4 to 1.0.5
-  ([#45](https://github.com/gnidan/abi-to-sol/pull/46) by
+  ([#46](https://github.com/gnidan/abi-to-sol/pull/46) by
+  [@dependabot](https://github.com/dependabot))
+
+- Bump url-parse from 1.5.1 to 1.5.3
+  ([#47](https://github.com/gnidan/abi-to-sol/pull/47) by
   [@dependabot](https://github.com/dependabot))
 
 ## v0.5.1
