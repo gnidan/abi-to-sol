@@ -1,6 +1,8 @@
 # abi-to-sol changelog
 
-## vNext
+## v0.5.2
+
+See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.5.2).
 
 ### Dependency updates
 
@@ -25,6 +27,8 @@
   [@dependabot](https://github.com/dependabot))
 
 ## v0.5.1
+
+See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.5.1).
 
 ### Internal improvements
 
