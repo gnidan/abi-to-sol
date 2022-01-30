@@ -12,6 +12,10 @@
   ([#51](https://github.com/gnidan/abi-to-sol/pull/51) by
   [@dependabot](https://github.com/dependabot))
 
+- Bump node-fetch from 2.6.1 to 2.6.7
+  ([#52](https://github.com/gnidan/abi-to-sol/pull/52) by
+  [@dependabot](https://github.com/dependabot))
+
 ## v0.5.2
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.5.2).
