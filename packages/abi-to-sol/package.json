@@ -47,7 +47,7 @@
   },
   "dependencies": {
     "@truffle/abi-utils": "^0.2.2",
-    "@truffle/codec": "^0.7.1",
+    "@truffle/codec": "^0.11.24",
     "@truffle/contract-schema": "^3.3.1",
     "ajv": "^6.12.5",
     "better-ajv-errors": "^0.8.2",
