@@ -2,8 +2,14 @@
 
 ## vNext
 
+### Dependency updates
+
 - Bump follow-redirects from 1.14.1 to 1.14.7
   ([#50](https://github.com/gnidan/abi-to-sol/pull/50) by
+  [@dependabot](https://github.com/dependabot))
+
+- Bump nanoid from 3.1.23 to 3.2.0
+  ([#51](https://github.com/gnidan/abi-to-sol/pull/51) by
   [@dependabot](https://github.com/dependabot))
 
 ## v0.5.2
