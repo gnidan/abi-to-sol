@@ -16,6 +16,10 @@
   ([#52](https://github.com/gnidan/abi-to-sol/pull/52) by
   [@dependabot](https://github.com/dependabot))
 
+- Bump trim-off-newlines from 1.0.1 to 1.0.3
+  ([#53](https://github.com/gnidan/abi-to-sol/pull/53) by
+  [@dependabot](https://github.com/dependabot))
+
 ## v0.5.2
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.5.2).
