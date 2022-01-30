@@ -20,6 +20,10 @@
   ([#53](https://github.com/gnidan/abi-to-sol/pull/53) by
   [@dependabot](https://github.com/dependabot))
 
+- Upgrade @truffle/codec to ^0.11.24
+  ([#54](https://github.com/gnidan/abi-to-sol/pull/54) by
+  [@gnidan](https://github.com/gnidan))
+
 ## v0.5.2
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.5.2).
