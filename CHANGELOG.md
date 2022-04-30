@@ -40,6 +40,10 @@
   ([#59](https://github.com/gnidan/abi-to-sol/pull/59) by
   [@dependabot](https://github.com/dependabot))
 
+- Bump simple-get from 2.8.1 to 2.8.2
+  ([#60](https://github.com/gnidan/abi-to-sol/pull/60) by
+  [@dependabot](https://github.com/dependabot))
+
 ## v0.5.2
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.5.2).
