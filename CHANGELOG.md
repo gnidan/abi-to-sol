@@ -1,6 +1,11 @@
 # abi-to-sol changelog
 
-## v0.5.3
+## vNext
+
+### Internal improvements
+
+- Update to Node.js LTS ([#63](https://github.com/gnidan/abi-to-sol/pull/63) by
+  [@gnidan](https://github.com/gnidan))
 
 ### Dependency updates
 
