@@ -7,6 +7,9 @@
 - Update to Node.js LTS ([#63](https://github.com/gnidan/abi-to-sol/pull/63) by
   [@gnidan](https://github.com/gnidan))
 
+- Update copyright notice ([#64](https://github.com/gnidan/abi-to-sol/pull/64)
+  by [@gnidan](https://github.com/gnidan))
+
 ### Dependency updates
 
 - Bump follow-redirects from 1.14.1 to 1.14.7
