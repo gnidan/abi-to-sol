@@ -1,6 +1,6 @@
 # abi-to-sol changelog
 
-## vNext
+## v0.5.3
 
 ### Dependency updates
 
