@@ -24,6 +24,22 @@
   ([#54](https://github.com/gnidan/abi-to-sol/pull/54) by
   [@gnidan](https://github.com/gnidan))
 
+- Bump follow-redirects from 1.14.7 to 1.14.8
+  ([#55](https://github.com/gnidan/abi-to-sol/pull/55) by
+  [@dependabot](https://github.com/dependabot))
+
+- Bump url-parse from 1.5.3 to 1.5.10
+  ([#57](https://github.com/gnidan/abi-to-sol/pull/57) by
+  [@dependabot](https://github.com/dependabot))
+
+- Bump minimist from 1.2.5 to 1.2.6
+  ([#58](https://github.com/gnidan/abi-to-sol/pull/58) by
+  [@dependabot](https://github.com/dependabot))
+
+- Bump async from 2.6.3 to 2.6.4
+  ([#59](https://github.com/gnidan/abi-to-sol/pull/59) by
+  [@dependabot](https://github.com/dependabot))
+
 ## v0.5.2
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.5.2).
