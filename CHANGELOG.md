@@ -2,6 +2,12 @@
 
 ## vNext
 
+### New features
+
+- Add `--no-attribution` and `--no-source` flags
+  ([#69](https://github.com/gnidan/abi-to-sol/pull/69) by
+  [@gnidan](https://github.com/gnidan))
+
 ### Internal improvements
 
 - Update to Node.js LTS ([#63](https://github.com/gnidan/abi-to-sol/pull/63) by
