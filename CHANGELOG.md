@@ -56,6 +56,10 @@
   ([#60](https://github.com/gnidan/abi-to-sol/pull/60) by
   [@dependabot](https://github.com/dependabot))
 
+- Bump eventsource from 1.1.0 to 1.1.1
+  ([#66](https://github.com/gnidan/abi-to-sol/pull/66) by
+  [@dependabot](https://github.com/dependabot))
+
 ## v0.5.2
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.5.2).
