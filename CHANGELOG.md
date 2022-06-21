@@ -2,6 +2,10 @@
 
 ## vNext
 
+## v0.6.1
+
+See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.6.1).
+
 ### New features
 
 - Add `--no-attribution` and `--no-source` flags
@@ -19,6 +23,16 @@
 - Add version feature knowledge for user-defined value types
   ([#65](https://github.com/gnidan/abi-to-sol/pull/65) by
   [@gnidan](https://github.com/gnidan))
+
+### Dependency updates
+
+- Bump eventsource from 1.1.0 to 1.1.1
+  ([#66](https://github.com/gnidan/abi-to-sol/pull/66) by
+  [@dependabot](https://github.com/dependabot))
+
+## v0.5.3
+
+See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.5.3).
 
 ### Dependency updates
 
@@ -60,10 +74,6 @@
 
 - Bump simple-get from 2.8.1 to 2.8.2
   ([#60](https://github.com/gnidan/abi-to-sol/pull/60) by
-  [@dependabot](https://github.com/dependabot))
-
-- Bump eventsource from 1.1.0 to 1.1.1
-  ([#66](https://github.com/gnidan/abi-to-sol/pull/66) by
   [@dependabot](https://github.com/dependabot))
 
 ## v0.5.2
