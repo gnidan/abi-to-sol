@@ -2,6 +2,13 @@
 
 ## vNext
 
+### Dependency updates
+
+- Bump @truffle/codec from ^0.11.24 to ^0.13.2
+  ([#72](https://github.com/gnidan/abi-to-sol/pull/72) by
+  [@cds-amal](https://github.com/cds-amal))
+
+
 ## v0.6.1
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.6.1).
