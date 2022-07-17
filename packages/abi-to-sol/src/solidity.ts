@@ -417,7 +417,7 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
     const signature = this.generateSignature(variable);
 
     if (!signature) {
-      return variable.type;
+      return this.generateElementaryType(variable, context);
     }
 
     const { type } = variable;
@@ -434,6 +434,29 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
 
     return type.replace("tuple", identifier);
   }
+
+  private generateElementaryType(
+    variable: Abi.Parameter | Component,
+    context: Pick<Context, "interfaceName"> = {}
+  ): string {
+    // normally we can return the type itself, but functions are a special case
+    if (variable.type !== "function") {
+      return variable.type;
+    }
+
+    // use just the `internalType` field if it exists
+    if ("internalType" in variable && variable.internalType) {
+      return variable.internalType;
+    }
+
+    // otherwise output minimally syntactically-valid syntax with a warning
+    return [
+      "/* warning: the following type may be incomplete. ",
+      "the receiving contract may expect additional input or output parameters. */ ",
+      "function() external"
+    ].join("");
+  }
+
 
   private generateSignature(
     variable: Abi.Parameter | Component

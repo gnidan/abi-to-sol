@@ -2,6 +2,12 @@
 
 ## vNext
 
+### Bug fixes
+
+- Produce valid syntax for function type params
+  ([#77](https://github.com/gnidan/abi-to-sol/pull/77) by
+  [@gnidan](https://github.com/gnidan))
+
 ### Dependency updates
 
 - Bump parse-url from 6.0.0 to 6.0.2
