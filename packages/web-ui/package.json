@@ -77,7 +77,7 @@
     "postcss-preset-env": "6.7.0",
     "postcss-safe-parser": "5.0.2",
     "prettier": "^2.3.2",
-    "prettier-plugin-solidity": "^1.0.0-beta.16",
+    "prettier-plugin-solidity": "^1.0.0-dev.23",
     "prompts": "2.4.0",
     "react": "^17.0.2",
     "react-app-polyfill": "^2.0.0",
