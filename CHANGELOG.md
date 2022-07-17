@@ -2,6 +2,10 @@
 
 ## vNext
 
+## v0.6.3
+
+See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.6.3).
+
 ### Bug fixes
 
 - Produce valid syntax for function type params
