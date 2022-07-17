@@ -56,8 +56,8 @@
     "source-map-support": "^0.5.19"
   },
   "optionalDependencies": {
-    "prettier": "^2.1.2",
-    "prettier-plugin-solidity": "1.0.0-alpha.59"
+    "prettier": "^2.7.1",
+    "prettier-plugin-solidity": "^1.0.0-dev.23"
   },
   "husky": {
     "hooks": {
