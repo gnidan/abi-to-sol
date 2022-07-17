@@ -2,6 +2,12 @@
 
 ## vNext
 
+### Dependency updates
+
+- Bump parse-url from 6.0.0 to 6.0.2
+  ([#75](https://github.com/gnidan/abi-to-sol/pull/75) by
+  [@dependabot](https://github.com/dependabot))
+
 ## v0.6.2
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.6.2).
