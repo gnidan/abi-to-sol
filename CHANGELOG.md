@@ -2,6 +2,10 @@
 
 ## vNext
 
+See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.6.4).
+
+## v0.6.4
+
 ### Dependency updates
 
 - Upgrade prettier-plugin-solidity and prettier to latest
