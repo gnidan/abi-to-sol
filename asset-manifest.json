@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "https://gnidan.github.io/abi-to-sol/static/js/main.f3d1ffae.chunk.js",
-    "main.js.map": "https://gnidan.github.io/abi-to-sol/static/js/main.f3d1ffae.chunk.js.map",
+    "main.js": "https://gnidan.github.io/abi-to-sol/static/js/main.05a9c03e.chunk.js",
+    "main.js.map": "https://gnidan.github.io/abi-to-sol/static/js/main.05a9c03e.chunk.js.map",
     "runtime-main.js": "https://gnidan.github.io/abi-to-sol/static/js/runtime-main.97a0efff.js",
     "runtime-main.js.map": "https://gnidan.github.io/abi-to-sol/static/js/runtime-main.97a0efff.js.map",
     "static/css/2.92cc431f.chunk.css": "https://gnidan.github.io/abi-to-sol/static/css/2.92cc431f.chunk.css",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.97a0efff.js",
     "static/css/2.92cc431f.chunk.css",
     "static/js/2.588a4bd8.chunk.js",
-    "static/js/main.f3d1ffae.chunk.js"
+    "static/js/main.05a9c03e.chunk.js"
   ]
 }
