@@ -12,14 +12,14 @@ Skip the terminal and just use the hosted
 
 ## CLI instructions
 
-No need to install - just use [npx](https://www.npmjs.com/package/npx) (e.g.
-`npx abi-to-sol`).
-
-Alternatively, install globally via:
+Install globally via:
 
 ```console
 $ npm install -g abi-to-sol
 ```
+
+Installing locally should work fine as well, but you may have to jump through
+hoops to get the `abi-to-sol` script available on your PATH.
 
 ### Usage
 
@@ -103,4 +103,6 @@ interface ENS {
 
 ## Is this project useful to you?
 
-Feel free to donate to [gnidan.eth](https://etherscan.io/address/0xefef50ebacd8da3c13932ac204361b704eb8292c) ❤️
+Feel free to donate to
+[gnidan.eth](https://etherscan.io/address/0xefef50ebacd8da3c13932ac204361b704eb8292c)
+❤️

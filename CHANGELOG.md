@@ -2,9 +2,15 @@
 
 ## vNext
 
-See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.6.4).
+### Project updates
+
+- Update README to remove npx support
+  ([#83](https://github.com/gnidan/abi-to-sol/pull/83) by
+  [@gnidan](https://github.com/gnidan))
 
 ## v0.6.4
+
+See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.6.4).
 
 ### Dependency updates
 
