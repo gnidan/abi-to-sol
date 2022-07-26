@@ -8,6 +8,12 @@
   ([#83](https://github.com/gnidan/abi-to-sol/pull/83) by
   [@gnidan](https://github.com/gnidan))
 
+### Dependency updates
+
+- Bump terser from 4.8.0 to 4.8.1
+  ([#84](https://github.com/gnidan/abi-to-sol/pull/84) by
+  [@dependabot](https://github.com/dependabot))
+
 ## v0.6.4
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.6.4).
