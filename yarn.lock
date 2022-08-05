@@ -3243,14 +3243,14 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
-"@truffle/abi-utils@^0.2.14":
-  version "0.2.14"
-  resolved "https://registry.yarnpkg.com/@truffle/abi-utils/-/abi-utils-0.2.14.tgz#01a8e21f4b540f301c94990fb12bacaf059d1ba6"
-  integrity sha512-2eHoWSFVutt+xAN8+g2x6N3+TM0AMUmGS4iW7KJNfxDsGdMBNe+qqUrDKM0NnA16yxqk95yQztO5EmWPiXw3+Q==
+"@truffle/abi-utils@^0.2.15":
+  version "0.2.15"
+  resolved "https://registry.yarnpkg.com/@truffle/abi-utils/-/abi-utils-0.2.15.tgz#7057fc2b694b61516dd484c8e877ceb549016910"
+  integrity sha512-Ykcz4M2EgSCtRuS7lChZMavb+uJlh3Rs0Hfws2p4Widr1HHlw98hZCyrwU2W8yJW9mfib0URl6RLestElwbQwA==
   dependencies:
     change-case "3.0.2"
     faker "5.5.3"
-    fast-check "^2.12.1"
+    fast-check "2.15.1"
 
 "@truffle/abi-utils@^0.2.2":
   version "0.2.2"
@@ -3261,19 +3261,19 @@
     faker "^5.3.1"
     fast-check "^2.12.1"
 
-"@truffle/codec@^0.13.2":
-  version "0.13.2"
-  resolved "https://registry.yarnpkg.com/@truffle/codec/-/codec-0.13.2.tgz#c7b1a3c6833d863843200dc2a739fd4174ae0707"
-  integrity sha512-iViBnh6WV2BKaLboFC3xd9FGgC2Iybx4CHI+A5PPPqFkjnEycigdN8wnV2eqic9ptE1Ix7wsj9urZitnsnLhCA==
+"@truffle/codec@^0.14.0":
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/@truffle/codec/-/codec-0.14.0.tgz#81095bfd1c7bc9d893c41f0c6e0b4ebcb5826a1b"
+  integrity sha512-Tbcxv5Vi/E7eYGiCHPVGWxWwWowcBIp8iiaOW5mahyhpjT28f6nySWtCkv9CF+Dx+doDqRXAKyIQPKsjQ+8CWg==
   dependencies:
-    "@truffle/abi-utils" "^0.2.14"
+    "@truffle/abi-utils" "^0.2.15"
     "@truffle/compile-common" "^0.7.32"
     big.js "^6.0.3"
     bn.js "^5.1.3"
     cbor "^5.1.0"
     debug "^4.3.1"
     lodash "^4.17.21"
-    semver "^7.3.4"
+    semver "7.3.7"
     utf8 "^3.0.0"
     web3-utils "1.7.4"
 
@@ -7392,6 +7392,13 @@ faker@5.5.3, faker@^5.1.0, faker@^5.3.1:
   version "5.5.3"
   resolved "https://registry.yarnpkg.com/faker/-/faker-5.5.3.tgz#c57974ee484431b25205c2c8dc09fda861e51e0e"
   integrity sha512-wLTv2a28wjUyWkbnX7u/ABZBkUkIF2fCd73V6P2oFqEGEktDfzWx4UxrSqtPRw0xPRAcjeAOIiJWqZm3pP4u3g==
+
+fast-check@2.15.1:
+  version "2.15.1"
+  resolved "https://registry.yarnpkg.com/fast-check/-/fast-check-2.15.1.tgz#a60c5ba0d5cba68a1176353c423c3733c02bb603"
+  integrity sha512-eNcOxh7iTLGwebRCRU+F+/Ne+41/7ra4qn1bhljAO+uqvxB9p4Qq/rqNeu3wls/ka9jnu9MvwUE/m1sTWcbGBg==
+  dependencies:
+    pure-rand "^4.1.1"
 
 fast-check@^2.12.1, fast-check@^2.4.0:
   version "2.17.0"
@@ -12765,6 +12772,11 @@ punycode@^2.1.0, punycode@^2.1.1:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
+pure-rand@^4.1.1:
+  version "4.2.1"
+  resolved "https://registry.yarnpkg.com/pure-rand/-/pure-rand-4.2.1.tgz#14c08ab1cebce0eb95b987638039742a1006a695"
+  integrity sha512-ESI2eqHP9JlrnTb7H7fgczRUWB6VxMMJ2m9870WCIBhYkBzSGd6gml6WhQVXHK+ZM8k70TqsyI28ixaLPaNz5g==
+
 pure-rand@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/pure-rand/-/pure-rand-5.0.0.tgz#87f5bdabeadbd8904e316913a5c0b8caac517b37"
@@ -13733,6 +13745,13 @@ semver@7.3.2:
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.2.tgz#604962b052b81ed0786aae84389ffba70ffd3938"
   integrity sha512-OrOb32TeeambH6UrhtShmF7CRDqhL6/5XpPNp2DuRH6+9QLw/orhp72j87v8Qa1ScDkvrrBNpZcDejAirJmfXQ==
 
+semver@7.3.7, semver@^7.3.7:
+  version "7.3.7"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.7.tgz#12c5b649afdbf9049707796e22a4028814ce523f"
+  integrity sha512-QlYTucUYOews+WeEujDoEGziz4K6c47V/Bd+LjSSYcA94p+DmINdf7ncaUinThfvZyu13lN9OY1XDxt8C0Tw0g==
+  dependencies:
+    lru-cache "^6.0.0"
+
 semver@7.x, semver@^7.1.1, semver@^7.1.3, semver@^7.2.1, semver@^7.3.2, semver@^7.3.4, semver@^7.3.5:
   version "7.3.5"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.5.tgz#0b621c879348d8998e4b0e4be94b3f12e6018ef7"
@@ -13744,13 +13763,6 @@ semver@^6.0.0, semver@^6.1.1, semver@^6.1.2, semver@^6.3.0:
   version "6.3.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
   integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
-
-semver@^7.3.7:
-  version "7.3.7"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-7.3.7.tgz#12c5b649afdbf9049707796e22a4028814ce523f"
-  integrity sha512-QlYTucUYOews+WeEujDoEGziz4K6c47V/Bd+LjSSYcA94p+DmINdf7ncaUinThfvZyu13lN9OY1XDxt8C0Tw0g==
-  dependencies:
-    lru-cache "^6.0.0"
 
 send@0.17.1:
   version "0.17.1"
