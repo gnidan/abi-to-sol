@@ -1,4 +1,4 @@
-import {Abi as SchemaAbi} from "@truffle/contract-schema/spec";
+import type {Abi as SchemaAbi} from "@truffle/contract-schema/spec";
 import * as Abi from "@truffle/abi-utils";
 
 export interface VisitOptions<N extends Node, C = undefined> {

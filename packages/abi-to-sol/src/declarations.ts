@@ -1,6 +1,6 @@
-import {Abi as SchemaAbi} from "@truffle/contract-schema/spec";
+import type {Abi as SchemaAbi} from "@truffle/contract-schema/spec";
 import * as Codec from "@truffle/codec";
-import * as Abi from "@truffle/abi-utils";
+import type * as Abi from "@truffle/abi-utils";
 
 import {Visitor, VisitOptions, dispatch, Node} from "./visitor";
 

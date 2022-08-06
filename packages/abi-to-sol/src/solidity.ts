@@ -1,7 +1,7 @@
 import type Prettier from "prettier";
 import * as Codec from "@truffle/codec";
-import * as Abi from "@truffle/abi-utils";
-import {Abi as SchemaAbi} from "@truffle/contract-schema/spec";
+import type * as Abi from "@truffle/abi-utils";
+import type {Abi as SchemaAbi} from "@truffle/contract-schema/spec";
 
 import { version } from "../package.json";
 import {Visitor, VisitOptions, dispatch, Node} from "./visitor";
