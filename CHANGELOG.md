@@ -2,6 +2,11 @@
 
 ## vNext
 
+### Internal improvements
+
+- Cleanup imports ([#88](https://github.com/gnidan/abi-to-sol/pull/88) by
+  [@gnidan](https://github.com/gnidan))
+
 ## v0.6.5
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.6.5).
