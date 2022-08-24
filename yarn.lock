@@ -3243,49 +3243,41 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
-"@truffle/abi-utils@^0.2.15":
-  version "0.2.15"
-  resolved "https://registry.yarnpkg.com/@truffle/abi-utils/-/abi-utils-0.2.15.tgz#7057fc2b694b61516dd484c8e877ceb549016910"
-  integrity sha512-Ykcz4M2EgSCtRuS7lChZMavb+uJlh3Rs0Hfws2p4Widr1HHlw98hZCyrwU2W8yJW9mfib0URl6RLestElwbQwA==
+"@truffle/abi-utils@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@truffle/abi-utils/-/abi-utils-0.3.0.tgz#edbdce6152c6ee711b7b8e267ff5745891931c59"
+  integrity sha512-W4Kbm17+QQeeK/uXB80t10gw1H8lEnAu+B7bu7NZl2Zy74kwhsrGC+qCjynhRQtGsFnCcsI58VxjjNkn1PsgSg==
   dependencies:
     change-case "3.0.2"
     faker "5.5.3"
-    fast-check "2.15.1"
+    fast-check "3.1.1"
+    web3-utils "1.7.4"
 
-"@truffle/abi-utils@^0.2.2":
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/@truffle/abi-utils/-/abi-utils-0.2.2.tgz#2d1b92a2ffb7887ec5a0163cd5415aab552b34af"
-  integrity sha512-GRphTbgqrsz0B43t5gNGRlMNV/L3LUv9oZXWqw6+ySEiZo1l/p6AA8cPmHp9jbA/dHyqx4MKSQ94qTR2siy0Eg==
+"@truffle/codec@^0.14.3":
+  version "0.14.3"
+  resolved "https://registry.yarnpkg.com/@truffle/codec/-/codec-0.14.3.tgz#2b37f7763390391b488c927b12f2310fe7cdb129"
+  integrity sha512-8lwWQXkbrmewwiDSekZPUiweysGKXOpFSNhtWCi1CS6gtla3bNK8/xE1nUi3ALsuKw2745kzzLZpwKsipGtGKg==
   dependencies:
-    change-case "3.0.2"
-    faker "^5.3.1"
-    fast-check "^2.12.1"
-
-"@truffle/codec@^0.14.0":
-  version "0.14.0"
-  resolved "https://registry.yarnpkg.com/@truffle/codec/-/codec-0.14.0.tgz#81095bfd1c7bc9d893c41f0c6e0b4ebcb5826a1b"
-  integrity sha512-Tbcxv5Vi/E7eYGiCHPVGWxWwWowcBIp8iiaOW5mahyhpjT28f6nySWtCkv9CF+Dx+doDqRXAKyIQPKsjQ+8CWg==
-  dependencies:
-    "@truffle/abi-utils" "^0.2.15"
-    "@truffle/compile-common" "^0.7.32"
+    "@truffle/abi-utils" "^0.3.0"
+    "@truffle/compile-common" "^0.8.0"
     big.js "^6.0.3"
     bn.js "^5.1.3"
-    cbor "^5.1.0"
+    cbor "^5.2.0"
     debug "^4.3.1"
     lodash "^4.17.21"
     semver "7.3.7"
     utf8 "^3.0.0"
     web3-utils "1.7.4"
 
-"@truffle/compile-common@^0.7.32":
-  version "0.7.32"
-  resolved "https://registry.yarnpkg.com/@truffle/compile-common/-/compile-common-0.7.32.tgz#3ea6ebfe99bb2bc339ca7723d491e7c52a999aed"
-  integrity sha512-SzIxwwQj8mJwoa7/kjkAslGenB4NejhmRHmdWdxNS5fqg2XqKhmSJcjir5qFjjvNzjcFZGecLg4EOm1Hj6letw==
+"@truffle/compile-common@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@truffle/compile-common/-/compile-common-0.8.0.tgz#8efcf68c82c2a62651255ebaf4150f222984fd9b"
+  integrity sha512-3mtEC73dQODTI3/ZwonunVHyPS2BGexXSBIv4pOgMrWwnZPcHlo2+IW2+m2At/DnZehL78bkF993Vti2pJfx6Q==
   dependencies:
-    "@truffle/error" "^0.1.0"
+    "@truffle/error" "^0.1.1"
     colors "1.4.0"
 
-"@truffle/contract-schema@^3.3.1", "@truffle/contract-schema@^3.4.1":
+"@truffle/contract-schema@^3.4.1":
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/@truffle/contract-schema/-/contract-schema-3.4.1.tgz#13b404383d438b48960862022a20102970323666"
   integrity sha512-2gvu6gxJtbbI67H2Bwh2rBuej+1uCV3z4zKFzQZP00hjNoL+QfybrmBcOVB88PflBeEB+oUXuwQfDoKX3TXlnQ==
@@ -3294,10 +3286,18 @@
     crypto-js "^3.1.9-1"
     debug "^4.3.1"
 
-"@truffle/error@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@truffle/error/-/error-0.1.0.tgz#5e9fed79e6cda624c926d314b280a576f8b22a36"
-  integrity sha512-RbUfp5VreNhsa2Q4YbBjz18rOQI909pG32bghl1hulO7IpvcqTS+C3Ge5cNbiWQ1WGzy1wIeKLW0tmQtHFB7qg==
+"@truffle/contract-schema@^3.4.9":
+  version "3.4.9"
+  resolved "https://registry.yarnpkg.com/@truffle/contract-schema/-/contract-schema-3.4.9.tgz#57119245452e49f7b1ea6c71900bb6c053d76c8c"
+  integrity sha512-nhYMXWbUs6dMYHL1f8DTkRk/uo1sADK0yeSYXo/p/7nqnjlHzqrr75BBsKbB7OFIVT05des+GFNQJqBaRZVdxQ==
+  dependencies:
+    ajv "^6.10.0"
+    debug "^4.3.1"
+
+"@truffle/error@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/@truffle/error/-/error-0.1.1.tgz#e52026ac8ca7180d83443dca73c03e07ace2a301"
+  integrity sha512-sE7c9IHIGdbK4YayH4BC8i8qMjoAOeg6nUXUDZZp8wlU21/EMpaG+CLx+KqcIPyR+GSWIW3Dm0PXkr2nlggFDA==
 
 "@types/aria-query@^4.2.0":
   version "4.2.2"
@@ -5116,7 +5116,7 @@ caseless@~0.12.0:
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.12.0.tgz#1b681c21ff84033c826543090689420d187151dc"
   integrity sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
 
-cbor@^5.1.0:
+cbor@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/cbor/-/cbor-5.2.0.tgz#4cca67783ccd6de7b50ab4ed62636712f287a67c"
   integrity sha512-5IMhi9e1QU76ppa5/ajP1BmMWZ2FHkhAhjeVKQ/EFCgYSEaeVaoGtL7cxJskf9oCCk+XjzaIdc3IuU/dbA/o2A==
@@ -7388,19 +7388,19 @@ extsprintf@^1.2.0:
   resolved "https://registry.yarnpkg.com/extsprintf/-/extsprintf-1.4.0.tgz#e2689f8f356fad62cca65a3a91c5df5f9551692f"
   integrity sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=
 
-faker@5.5.3, faker@^5.1.0, faker@^5.3.1:
+faker@5.5.3, faker@^5.1.0:
   version "5.5.3"
   resolved "https://registry.yarnpkg.com/faker/-/faker-5.5.3.tgz#c57974ee484431b25205c2c8dc09fda861e51e0e"
   integrity sha512-wLTv2a28wjUyWkbnX7u/ABZBkUkIF2fCd73V6P2oFqEGEktDfzWx4UxrSqtPRw0xPRAcjeAOIiJWqZm3pP4u3g==
 
-fast-check@2.15.1:
-  version "2.15.1"
-  resolved "https://registry.yarnpkg.com/fast-check/-/fast-check-2.15.1.tgz#a60c5ba0d5cba68a1176353c423c3733c02bb603"
-  integrity sha512-eNcOxh7iTLGwebRCRU+F+/Ne+41/7ra4qn1bhljAO+uqvxB9p4Qq/rqNeu3wls/ka9jnu9MvwUE/m1sTWcbGBg==
+fast-check@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/fast-check/-/fast-check-3.1.1.tgz#72c5ae7022a4e86504762e773adfb8a5b0b01252"
+  integrity sha512-3vtXinVyuUKCKFKYcwXhGE6NtGWkqF8Yh3rvMZNzmwz8EPrgoc/v4pDdLHyLnCyCI5MZpZZkDEwFyXyEONOxpA==
   dependencies:
-    pure-rand "^4.1.1"
+    pure-rand "^5.0.1"
 
-fast-check@^2.12.1, fast-check@^2.4.0:
+fast-check@^2.4.0:
   version "2.17.0"
   resolved "https://registry.yarnpkg.com/fast-check/-/fast-check-2.17.0.tgz#9b9637684332be386219a5f73a4799874da7461c"
   integrity sha512-fNNKkxNEJP+27QMcEzF6nbpOYoSZIS0p+TyB+xh/jXqRBxRhLkiZSREly4ruyV8uJi7nwH1YWAhi7OOK5TubRw==
@@ -12772,15 +12772,15 @@ punycode@^2.1.0, punycode@^2.1.1:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
-pure-rand@^4.1.1:
-  version "4.2.1"
-  resolved "https://registry.yarnpkg.com/pure-rand/-/pure-rand-4.2.1.tgz#14c08ab1cebce0eb95b987638039742a1006a695"
-  integrity sha512-ESI2eqHP9JlrnTb7H7fgczRUWB6VxMMJ2m9870WCIBhYkBzSGd6gml6WhQVXHK+ZM8k70TqsyI28ixaLPaNz5g==
-
 pure-rand@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/pure-rand/-/pure-rand-5.0.0.tgz#87f5bdabeadbd8904e316913a5c0b8caac517b37"
   integrity sha512-lD2/y78q+7HqBx2SaT6OT4UcwtvXNRfEpzYEzl0EQ+9gZq2Qi3fa0HDnYPeqQwhlHJFBUhT7AO3mLU3+8bynHA==
+
+pure-rand@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/pure-rand/-/pure-rand-5.0.1.tgz#97a287b4b4960b2a3448c0932bf28f2405cac51d"
+  integrity sha512-ksWccjmXOHU2gJBnH0cK1lSYdvSZ0zLoCMSz/nTGh6hDvCSgcRxDyIcOBD6KNxFz3xhMPm/T267Tbe2JRymKEQ==
 
 q@^1.1.2, q@^1.5.1:
   version "1.5.1"

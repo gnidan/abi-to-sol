@@ -2,6 +2,12 @@
 
 ## vNext
 
+### Dependency updates
+
+- Bump @truffle/abi-utils from ^0.2.2 to ^0.3.0
+- Bump @truffle/codec from ^0.14.0 to ^0.14.3
+- Bump @truffle/contract-schema from ^3.3.1 to ^3.4.9
+
 ### Internal improvements
 
 - Cleanup imports ([#88](https://github.com/gnidan/abi-to-sol/pull/88) by
