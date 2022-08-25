@@ -2,12 +2,16 @@
 
 ## vNext
 
+## v0.6.6
+
+See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.6.6).
+
 ### Internal improvements
 
 - Cleanup imports ([#88](https://github.com/gnidan/abi-to-sol/pull/88) by
   [@gnidan](https://github.com/gnidan))
 
-### Dependency changes
+### Dependency updates
 
 - Bump @truffle/abi-utils to ^0.3.0, drop dependency @truffle/codec
   ([#92](https://github.com/gnidan/abi-to-sol/pull/92) by
