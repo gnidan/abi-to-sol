@@ -1,6 +1,6 @@
 import type {Abi as SchemaAbi} from "@truffle/contract-schema/spec";
-import * as Codec from "@truffle/codec";
 import type * as Abi from "@truffle/abi-utils";
+import { abiTupleSignature } from "@truffle/abi-utils";
 
 import {Visitor, VisitOptions, dispatch, Node} from "./visitor";
 
@@ -78,7 +78,7 @@ export class DeclarationsCollector implements Visitor<Declarations> {
 
     let container = "";
     const components = parameter.components || [];
-    const signature = Codec.AbiData.Utils.abiTupleSignature(components);
+    const signature = abiTupleSignature(components);
     const declaration: Declaration = {
       components: components.map(({name, type, components}) =>
         !components
@@ -86,7 +86,7 @@ export class DeclarationsCollector implements Visitor<Declarations> {
           : {
               name,
               type,
-              signature: Codec.AbiData.Utils.abiTupleSignature(components),
+              signature: abiTupleSignature(components),
             }
       ),
     };

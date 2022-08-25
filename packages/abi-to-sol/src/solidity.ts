@@ -1,8 +1,7 @@
 import type Prettier from "prettier";
-import * as Codec from "@truffle/codec";
 import type * as Abi from "@truffle/abi-utils";
+import { abiTupleSignature } from "@truffle/abi-utils";
 import type {Abi as SchemaAbi} from "@truffle/contract-schema/spec";
-
 import { version } from "../package.json";
 import {Visitor, VisitOptions, dispatch, Node} from "./visitor";
 import { forRange, VersionFeatures, mixed } from "./version-features";
@@ -466,7 +465,7 @@ class SolidityGenerator implements Visitor<string, Context | undefined> {
     }
 
     if ("components" in variable && variable.components) {
-      return Codec.AbiData.Utils.abiTupleSignature(variable.components);
+      return abiTupleSignature(variable.components);
     }
   }
 

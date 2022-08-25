@@ -7,6 +7,12 @@
 - Cleanup imports ([#88](https://github.com/gnidan/abi-to-sol/pull/88) by
   [@gnidan](https://github.com/gnidan))
 
+### Dependency changes
+
+- Bump @truffle/abi-utils to ^0.3.0, drop dependency @truffle/codec
+  ([#92](https://github.com/gnidan/abi-to-sol/pull/92) by
+  [@benjamincburns](https://github.com/benjamincburns))
+
 ## v0.6.5
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.6.5).
