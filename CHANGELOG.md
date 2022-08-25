@@ -2,16 +2,16 @@
 
 ## vNext
 
-### Dependency changes
-
-- Bump @truffle/abi-utils from ^0.2.2 to ^0.3.0
-- Drop dependency on @truffle/codec
-- Bump fast-check devDependency from ^2.4.0 to ^3.1.1
-
 ### Internal improvements
 
 - Cleanup imports ([#88](https://github.com/gnidan/abi-to-sol/pull/88) by
   [@gnidan](https://github.com/gnidan))
+
+### Dependency changes
+
+- Bump @truffle/abi-utils to ^0.3.0, drop dependency @truffle/codec
+  ([#92](https://github.com/gnidan/abi-to-sol/pull/92) by
+  [@benjamincburns](https://github.com/benjamincburns))
 
 ## v0.6.5
 
