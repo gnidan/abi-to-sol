@@ -2,6 +2,12 @@
 
 ## vNext
 
+### New features
+
+- Allow producing embeddable output, e.g. no pragma
+  ([#91](https://github.com/gnidan/abi-to-sol/pull/91) by
+  [@gnidan](https://github.com/gnidan))
+
 ### Internal improvements
 
 - Cleanup imports ([#88](https://github.com/gnidan/abi-to-sol/pull/88) by

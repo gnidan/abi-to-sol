@@ -1,4 +1,6 @@
 import "source-map-support/register";
 
 export * as defaults from "./defaults";
-export {GenerateSolidityOptions, generateSolidity} from "./solidity";
+export {generateSolidity} from "./solidity";
+export {GenerateSolidityOptions, GenerateSolidityMode} from "./options";
+
