@@ -1,6 +1,6 @@
 {
   "name": "abi-to-sol",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "description": "Compile ABI JSON to Solidity interface",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
@@ -34,7 +34,7 @@
     "@types/semver": "^7.3.7",
     "change-case": "^4.1.1",
     "faker": "^5.1.0",
-    "fast-check": "^2.4.0",
+    "fast-check": "^3.1.1",
     "husky": ">=4",
     "jest": "^26.4.2",
     "jest-fast-check": "^0.0.1",
@@ -46,8 +46,7 @@
     "typescript": "4.5.2"
   },
   "dependencies": {
-    "@truffle/abi-utils": "^0.2.2",
-    "@truffle/codec": "^0.14.0",
+    "@truffle/abi-utils": "^0.3.0",
     "@truffle/contract-schema": "^3.3.1",
     "ajv": "^6.12.5",
     "better-ajv-errors": "^0.8.2",
