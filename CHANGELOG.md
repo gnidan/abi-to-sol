@@ -2,6 +2,12 @@
 
 ## vNext
 
+### New features
+
+- Allow producing embeddable output, e.g. no pragma
+  ([#91](https://github.com/gnidan/abi-to-sol/pull/91) by
+  [@gnidan](https://github.com/gnidan))
+
 ## v0.6.6
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.6.6).
