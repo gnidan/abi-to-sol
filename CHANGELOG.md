@@ -8,6 +8,12 @@
   ([#91](https://github.com/gnidan/abi-to-sol/pull/91) by
   [@gnidan](https://github.com/gnidan))
 
+### Project updates
+
+- Add GitPOAP badge to README
+  ([#96](https://github.com/gnidan/abi-to-sol/pull/96) by
+  [@gnidan](https://github.com/gnidan))
+
 ## v0.6.6
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.6.6).
