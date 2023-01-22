@@ -56,7 +56,7 @@ const readStdin = async () =>
 
     process.stdin.on("end", () => {
       try {
-        const json = chunks.join();
+        const json = chunks.join("");
         const abi = JSON.parse(json);
         accept(abi);
       } catch (error) {
