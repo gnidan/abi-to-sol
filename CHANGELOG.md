@@ -2,6 +2,13 @@
 
 ## vNext
 
+### Bug fixes
+
+- Properly support large JSON inputs
+  ([#107](https://github.com/gnidan/abi-to-sol/pull/107) by
+  [@gnidan](https://github.com/gnidan) and
+  [@SuperGNUS](https://github.com/SuperGNUS))
+
 ### Dependency updates
 
 - Bump decode-uri-component from 0.2.0 to 0.2.2
