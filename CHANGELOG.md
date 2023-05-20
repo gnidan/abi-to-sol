@@ -1,6 +1,8 @@
 # abi-to-sol changelog
 
-## vNext
+## v0.7.0
+
+See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.7.0).
 
 ### New features
 
