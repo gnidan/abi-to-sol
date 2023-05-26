@@ -2,6 +2,16 @@
 
 ## vNext
 
+### Dependency updates
+
+- Bump decode-uri-component from 0.2.0 to 0.2.2
+  ([#84](https://github.com/gnidan/abi-to-sol/pull/98) by
+  [@dependabot](https://github.com/dependabot))
+
+## v0.7.0
+
+See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.7.0).
+
 ### New features
 
 - Allow producing embeddable output, e.g. no pragma
@@ -13,6 +23,12 @@
 - Add GitPOAP badge to README
   ([#96](https://github.com/gnidan/abi-to-sol/pull/96) by
   [@gnidan](https://github.com/gnidan))
+
+### Dependency updates
+
+- Bump @truffle/abi-utils to ^1.0.0
+  ([#104](https://github.com/gnidan/abi-to-sol/pull/104)) by
+  [@haltman-at](https://github.com/haltman-at))
 
 ## v0.6.6
 
