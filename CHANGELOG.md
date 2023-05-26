@@ -4,8 +4,12 @@
 
 ### Dependency updates
 
+- Bump qs from 6.5.2 to 6.5.3
+  ([#99](https://github.com/gnidan/abi-to-sol/pull/99) by
+  [@dependabot](https://github.com/dependabot))
+
 - Bump decode-uri-component from 0.2.0 to 0.2.2
-  ([#84](https://github.com/gnidan/abi-to-sol/pull/98) by
+  ([#98](https://github.com/gnidan/abi-to-sol/pull/98) by
   [@dependabot](https://github.com/dependabot))
 
 ## v0.7.0
