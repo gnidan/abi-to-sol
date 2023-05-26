@@ -8,10 +8,15 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout
         uses: actions/checkout@v2.3.1
 
-      - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
+      - name: Setup Node.js v16.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: Install and build
         run: |
           yarn
           cd packages/abi-to-sol
@@ -19,9 +24,9 @@ jobs:
           cd ../web-ui
           PUBLIC_URL=https://gnidan.github.io/abi-to-sol/ yarn build
 
-      - name: Deploy 🚀
+      - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: packages/web-ui/build # The folder the action should deploy.
+          branch: gh-pages
+          folder: packages/web-ui/build
 
