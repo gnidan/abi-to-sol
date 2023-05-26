@@ -16,6 +16,10 @@
   ([#100](https://github.com/gnidan/abi-to-sol/pull/100) by
   [@dependabot](https://github.com/dependabot))
 
+- Bump json5 from 1.0.1 to 1.0.2
+  ([#101](https://github.com/gnidan/abi-to-sol/pull/101) by
+  [@dependabot](https://github.com/dependabot))
+
 ## v0.7.0
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.7.0).
