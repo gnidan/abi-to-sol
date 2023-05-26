@@ -20,6 +20,10 @@
   ([#101](https://github.com/gnidan/abi-to-sol/pull/101) by
   [@dependabot](https://github.com/dependabot))
 
+- Bump http-cache-semantics from 4.1.0 to 4.1.1
+  ([#103](https://github.com/gnidan/abi-to-sol/pull/103) by
+  [@dependabot](https://github.com/dependabot))
+
 ## v0.7.0
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.7.0).
