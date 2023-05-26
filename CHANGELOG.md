@@ -2,6 +2,10 @@
 
 ## vNext
 
+## v0.7.1
+
+See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.7.1).
+
 ### Bug fixes
 
 - Properly support large JSON inputs
