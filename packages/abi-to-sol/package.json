@@ -1,6 +1,6 @@
 {
   "name": "abi-to-sol",
-  "version": "0.6.6",
+  "version": "0.7.0",
   "description": "Compile ABI JSON to Solidity interface",
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
@@ -46,7 +46,7 @@
     "typescript": "4.5.2"
   },
   "dependencies": {
-    "@truffle/abi-utils": "^0.3.0",
+    "@truffle/abi-utils": "^1.0.0",
     "@truffle/contract-schema": "^3.3.1",
     "ajv": "^6.12.5",
     "better-ajv-errors": "^0.8.2",
