@@ -1,7 +1,6 @@
 # abi-to-sol
 
 [![npm version](https://badge.fury.io/js/abi-to-sol.svg)](https://www.npmjs.com/package/abi-to-sol)
-[![Join the chat at https://gitter.im/gnidan/abi-to-sol](https://badges.gitter.im/gnidan/abi-to-sol.svg)](https://gitter.im/gnidan/abi-to-sol?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![gitpoap badge](https://public-api.gitpoap.io/v1/repo/gnidan/abi-to-sol/badge)](https://www.gitpoap.io/gh/gnidan/abi-to-sol)
 
 _Generate Solidity `interface` source from a given ABI JSON!_
