@@ -1,5 +1,12 @@
 # abi-to-sol changelog
 
+## vNext
+
+### Web UI updates
+
+- Fix example in Web UI ([#122](https://github.com/gnidan/abi-to-sol/pull/122)
+  by [@gnidan](https://github.com/gnidan))
+
 ## v0.8.0
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.8.0).
