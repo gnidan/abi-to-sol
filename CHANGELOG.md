@@ -19,6 +19,9 @@
 - Remove Gitter badge ([#116](https://github.com/gnidan/abi-to-sol/pull/116) by
   [@gnidan](https://github.com/gnidan))
 
+- Improve README.md ([#117](https://github.com/gnidan/abi-to-sol/pull/117) by
+  [@gnidan](https://github.com/gnidan))
+
 ## v0.7.1
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.7.1).
