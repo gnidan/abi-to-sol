@@ -16,6 +16,9 @@
 - Update copyright year ([#115](https://github.com/gnidan/abi-to-sol/pull/115)
   by [@gnidan](https://github.com/gnidan))
 
+- Remove Gitter badge ([#116](https://github.com/gnidan/abi-to-sol/pull/116) by
+  [@gnidan](https://github.com/gnidan))
+
 ## v0.7.1
 
 See [release notes](https://github.com/gnidan/abi-to-sol/releases/tag/v0.7.1).
