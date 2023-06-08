@@ -8,6 +8,7 @@ import DepositContract from "./examples/DepositContract.abi.json";
 import UniswapV2RouterO2 from "./examples/UniswapV2Router02.abi.json";
 import AirSwap from "./examples/AirSwap.abi.json";
 import BunchaStructs from "./examples/BunchaStructs.abi.json";
+import UDVTs from "./examples/UDVTs.abi.json";
 
 export interface Example {
   name: string;
@@ -40,6 +41,11 @@ export const examples: { [exampleName: string]: Example } = {
     name: "BunchaStructs",
     license: "",
     contents: JSON.stringify(BunchaStructs, undefined, 2)
+  },
+  udvts: {
+    name: "UDVTs",
+    license: "",
+    contents: JSON.stringify(UDVTs, undefined, 2)
   }
 };
 

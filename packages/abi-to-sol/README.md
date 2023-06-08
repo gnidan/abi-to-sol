@@ -98,10 +98,6 @@ interface ENS {
 
 ```
 
-## Currently unsupported (PRs welcome! :wink:)
-
-- [User defined value types](https://blog.soliditylang.org/2021/09/27/user-defined-value-types/)
-
 ## Is this project useful to you?
 
 Feel free to donate to
