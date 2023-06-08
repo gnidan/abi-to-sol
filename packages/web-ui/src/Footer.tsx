@@ -20,7 +20,7 @@ export const Footer = () => {
         </a>
       </Heading>
       <Text>
-        Tool &amp; web UI &copy; 2020-2022{" "}
+        Tool &amp; web UI &copy; 2020-2023{" "}
         <Link
           color="purple.500"
           href="https://github.com/gnidan"
