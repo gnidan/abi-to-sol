@@ -21,9 +21,9 @@ function App() {
           initialState={JSON.stringify([
             {
               type: "event",
-              name: "Magic",
+              name: "MagicHappened",
               inputs: [{
-                internalType: "struct Magic",
+                internalType: "struct Magic[]",
                 name: "magic",
                 type: "tuple[]",
                 indexed: false,
