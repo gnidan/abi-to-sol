@@ -6,6 +6,8 @@
 
 - Fix example in Web UI ([#122](https://github.com/gnidan/abi-to-sol/pull/122)
   by [@gnidan](https://github.com/gnidan))
+- Update Web UI README.md with project-specific instructions ([#127](https://github.com/gnidan/abi-to-sol/pull/127)
+  by [@shandysulen](https://github.com/shandysulen))
 
 ## v0.8.0
 
